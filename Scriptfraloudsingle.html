@@ -1,0 +1,69 @@
+<script>
+    let podcast;
+    let episode;
+    let aktuelpodcast = <?php echo get_the_ID() ?>;
+
+    console.log("aktuelpodcast: ", aktuelpodcast);
+
+    const dbUrl = "http://dziugas.dk/kea/2semester/tema9/radio_loud/wordpress/wp-json/wp/v2/podcast/" + aktuelpodcast;
+    const episodeUrl = "http://dziugas.dk/kea/2semester/tema9/radio_loud/wordpress/wp-json/wp/v2/episode?per_page=100";
+
+    const container = document.querySelector("#episode");
+
+    async function getJson() {
+        const data = await fetch(dbUrl);
+        podcast = await data.json();
+        console.log("podcast linje 51: ", podcast);
+        const data2 = await fetch(episodeUrl)
+        episode = await data2.json();
+        console.log("episode: ", episode);
+
+        visPodcasts();
+        visEpisode();
+    }
+
+
+    function visPodcasts() {
+        console.log("visPodcasts");
+        console.log(podcast);
+        document.querySelector("h1").innerHTML = podcast.title.rendered;
+        document.querySelector(".pic").src = podcast.billede.guid;
+        document.querySelector(".pic").alt = podcast.billede.post_title;
+        document.querySelector(".lang_beskrivelse").innerHTML = podcast.lang_beskrivelse;
+        document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
+        document.querySelector(".like").addEventListener("click", hjerteFunktion);
+    }
+
+    function hjerteFunktion() {
+        console.log("this", this);
+        this.classList.toggle("heart");
+    }
+
+    function visEpisode() {
+        console.log("visEpisode");
+        let temp = document.querySelector("template");
+        episode.forEach(episode => {
+            console.log("loop id :", aktuelpodcast);
+            if (episode.horer_til_podcast == aktuelpodcast) {
+                console.log("loop kører id :", aktuelpodcast);
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("img").src = episode.billede.guid;
+                klon.querySelector("img").alt = episode.billede.post_title;
+                klon.querySelector("h2").innerHTML = episode.title.rendered;
+                /*klon.querySelector("p").innerHTML = episode.lang_beskrivelse;*/
+                klon.querySelector(".download").href = episode.afspilknappen;
+                klon.querySelector(".afspillyden").src = episode.afspilknappen;
+                klon.querySelector(".episodespotify").href = episode.spotify;
+                klon.querySelector(".episodespotifybillede").src = episode.episodespotifylogo.guid;
+                console.log("episode", episode.link);
+                container.appendChild(klon);
+            }
+        })
+    }
+    getJson();
+
+    function tilbageTilListe() {
+        history.back();
+    }
+
+</script>
