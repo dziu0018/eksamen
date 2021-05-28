@@ -1,3 +1,45 @@
+<div id="primary" class="content-area">
+    <main id="main" class="site-main">
+        <?php
+the_content();
+?>
+
+        <button class="back-button">Tilbage til oversigt</button>
+        <article class="mainarticle">
+            <img class="pic" src="" alt="">
+            <div>
+                <h1></h1>
+                <div class="">
+                    <i class="fa fa-heart like heart" aria-hidden="true"></i>
+                </div>
+                <p class="lang_beskrivelse"></p>
+            </div>
+        </article>
+
+        <section id="episode">
+            <template>
+                <article class="underarticle">
+                    <div class="articlegrid">
+                        <div>
+                            <img class="pic2 " src="" alt="">
+                        </div>
+                        <div>
+                            <h2></h2>
+                            <p></p>
+                            <audio controls class="afspillyden" src="#"></audio>
+                            <a class="download" href="#">Download</a>
+                            <a class="episodespotify" href="">
+                                <img class="episodespotifybillede" src="#" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </template>
+        </section>
+    </main>
+
+</div>
+
 <script>
     let podcast;
     let episode;
