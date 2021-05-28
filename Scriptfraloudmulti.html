@@ -1,0 +1,190 @@
+<script>
+    let podcasts = [];
+
+
+
+
+
+    let categories;
+
+
+
+
+
+    let filterCategory = "alle";
+
+
+
+
+
+
+
+
+
+    const liste = document.querySelector("#podcast-oversigt");
+
+
+
+
+
+
+    const skabelon = document.querySelector("template");
+    let filterPodcast = "alle";
+
+
+
+
+
+    // når DOM er loadet kalder den efter funktionen "start"
+    document.addEventListener("DOMContentLoaded", start)
+
+
+
+
+
+
+    // første funktion der kaldes efter DOM er loaded
+    function start() {
+        console.log("start");
+        getJson();
+    }
+
+
+
+
+
+    const url = "http://dziugas.dk/kea/2semester/tema9/radio_loud/wordpress//wp-json/wp/v2/podcast?per_page=100";
+
+
+
+
+
+    const catUrl = "http://dziugas.dk/kea/2semester/tema9/radio_loud/wordpress//wp-json/wp/v2/categories";
+
+
+
+
+
+    async function getJson() {
+        console.log("getJson");
+        let response = await fetch(url);
+        let catresponse = await fetch(catUrl);
+        podcasts = await response.json();
+        categories = await catresponse.json();
+        console.log(categories);
+        visPodcasts();
+        opretknapper();
+    }
+
+
+
+
+
+    function opretknapper() {
+
+
+
+
+
+        // ----------------------------------------------------------------- "data-podcast"
+
+
+
+
+
+        // categories.forEach(cat => {
+        // document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-podcast="${cat.id}">${cat.name}</button>`
+        //})
+
+
+
+        categories.forEach(cat => {
+            if (cat.name == "Alle") {
+                document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-podcast="${cat.id}">${cat.name}</button>`
+            } else {
+                document.querySelector("#filtrering").innerHTML += `<button class="filter" data-podcast="${cat.id}">${cat.name}</button>`
+            }
+        })
+
+
+
+
+
+        addEventListenerToButtons();
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    function addEventListenerToButtons() {
+        document.querySelectorAll(".like").forEach(like => {
+            like.addEventListener("click", hjerteFunktion);
+
+            })
+
+        document.querySelectorAll("#filtrering button").forEach(elm => {
+            elm.addEventListener("click", filtrering);
+
+        })
+    }
+
+
+
+
+    function filtrering() {
+        document.querySelectorAll("#filtrering button").forEach(elm => {
+            elm.classList.remove("active")
+        });
+        filterPodcast = this.dataset.podcast;
+        console.log(filterPodcast);
+        visPodcasts();
+    }
+
+
+function hjerteFunktion() {
+        console.log("this", this);
+        this.classList.toggle("heart");
+    }
+
+
+
+
+
+    function visPodcasts() {
+        console.log(podcasts);
+        document.querySelectorAll(".like").forEach(like => {
+            like.addEventListener("click", hjerteFunktion);
+
+            })
+        liste.innerHTML = "";
+        podcasts.forEach(podcasts => {
+            if (filterPodcast == "alle" || podcasts.categories.includes(parseInt(filterPodcast))) {
+                const klon = skabelon.cloneNode(true).content;
+                klon.querySelector("h2").textContent = podcasts.title.rendered;
+                // --------------------------------------------------------------------------------"podcasts"
+                klon.querySelector("img").src = podcasts.billede.guid;
+                klon.querySelector("img").alt = podcasts.billede.post_title;
+                klon.querySelector(".kort_beskrivelse").innerHTML = podcasts.kort_beskrivelse;
+                klon.querySelector(".podcastpic").addEventListener("click", () => {
+                    location.href = podcasts.link;
+                })
+                liste.appendChild(klon);
+            }
+        })
+
+    }
+
+
+
+
+</script>
