@@ -65,9 +65,11 @@ the_content();
             grid-gap: 10px;
         }
 
+/*
         article {
             border: 1px solid #000;
         }
+*/
 
         img {
             max-width: 100%;
