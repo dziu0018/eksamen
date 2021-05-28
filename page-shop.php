@@ -62,7 +62,6 @@ the_content();
             max-width: 1000px;
             margin: 0 auto;
             display: grid;
-            background: #ccc;
             grid-gap: 10px;
         }
 
@@ -75,7 +74,6 @@ the_content();
         }
 
         article:nth-child(odd) {
-            background: #fff;
 
         }
 
@@ -94,7 +92,6 @@ the_content();
 
             article:nth-child(4n -1) {
 
-                background: #ca1;
                 grid-column: 2 / span 4;
             }
 
@@ -132,7 +129,6 @@ the_content();
 
         .produktpic {
             width: 100%;
-            border: 5px solid white;
             transition: 0.2s ease-out;
             cursor: pointer;
         }
@@ -144,7 +140,7 @@ the_content();
 
 
         h2 {
-            color: white;
+            color: black;
             font-family: 'Josefin Sans', sans-serif;
             font-size: 1.5rem;
         }
@@ -153,7 +149,6 @@ the_content();
 
         h1 {
             text-align: center;
-            color: #DBAA1F;
             font-family: 'Josefin Sans', sans-serif;
         }
 
