@@ -96,6 +96,7 @@ the_content();
         h2 {
             color: white;
             font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
         }
 
 
