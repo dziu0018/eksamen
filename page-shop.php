@@ -40,7 +40,7 @@ get_header(); ?>
 the_content();
 ?>
         <nav id="filtrering"></nav>
-        <div id="podcast-oversigt">
+        <div id="produkt-oversigt">
         </div>
     </main>
 
@@ -50,58 +50,24 @@ the_content();
 
     <template>
         <article>
-            <img class="podcastpic" src="" alt="">
-            <div class="hjerte">
-                <i class="fa fa-heart like heart" aria-hidden="true"></i>
-            </div>
+            <img class="produktpic" src="" alt="">
             <h2></h2>
-            <p class="kort_beskrivelse"></p>
         </article>
     </template>
 
     <script>
-        let podcasts = [];
-
-
-
-
-
+        let produkter = [];
         let categories;
-
-
-
-
-
         let filterCategory = "alle";
 
-
-
-
-
-
-
-
-
-        const liste = document.querySelector("#podcast-oversigt");
-
-
-
-
-
-
+        const liste = document.querySelector("#produkt-oversigt");
         const skabelon = document.querySelector("template");
-        let filterPodcast = "alle";
 
-
-
+        let filterProdukt = "alle";
 
 
         // når DOM er loadet kalder den efter funktionen "start"
         document.addEventListener("DOMContentLoaded", start)
-
-
-
-
 
 
         // første funktion der kaldes efter DOM er loaded
@@ -111,138 +77,74 @@ the_content();
         }
 
 
-
-
-
-        const url = "http://dziugas.dk/kea/2semester/tema9/radio_loud/wordpress//wp-json/wp/v2/podcast?per_page=100";
-
-
-
-
-
-        const catUrl = "http://dziugas.dk/kea/2semester/tema9/radio_loud/wordpress//wp-json/wp/v2/categories";
-
-
-
-
+        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?per_page=100";
+        const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories";
 
         async function getJson() {
             console.log("getJson");
             let response = await fetch(url);
             let catresponse = await fetch(catUrl);
-            podcasts = await response.json();
+            produkter = await response.json();
             categories = await catresponse.json();
             console.log(categories);
-            visPodcasts();
+            visProdukter();
             opretknapper();
         }
-
-
-
 
 
         function opretknapper() {
 
 
 
-
-
-            // ----------------------------------------------------------------- "data-podcast"
-
-
-
-
-
-            // categories.forEach(cat => {
-            // document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-podcast="${cat.id}">${cat.name}</button>`
-            //})
-
-
-
+            // ------------------------------------------------------ DETTE ER USIKKERT!!!!!!
             categories.forEach(cat => {
                 if (cat.name == "Alle") {
-                    document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-podcast="${cat.id}">${cat.name}</button>`
+                    document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-produkt="${cat.id}">${cat.name}</button>`
                 } else {
-                    document.querySelector("#filtrering").innerHTML += `<button class="filter" data-podcast="${cat.id}">${cat.name}</button>`
+                    document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
                 }
             })
 
-
-
-
-
             addEventListenerToButtons();
-
-
-
-
-
         }
-
-
-
-
-
-
-
 
 
         function addEventListenerToButtons() {
-            document.querySelectorAll(".like").forEach(like => {
-                like.addEventListener("click", hjerteFunktion);
-
-            })
 
             document.querySelectorAll("#filtrering button").forEach(elm => {
                 elm.addEventListener("click", filtrering);
-
             })
         }
-
-
 
 
         function filtrering() {
             document.querySelectorAll("#filtrering button").forEach(elm => {
                 elm.classList.remove("active")
             });
-            filterPodcast = this.dataset.podcast;
-            console.log(filterPodcast);
-            visPodcasts();
+            filterProdukt = this.dataset.produkt;
+            console.log(filterProdukt);
+            visProdukter();
         }
 
 
-        function hjerteFunktion() {
-            console.log("this", this);
-            this.classList.toggle("heart");
-        }
+        function visProdukter() {
+            console.log(produkter);
 
-
-
-
-
-        function visPodcasts() {
-            console.log(podcasts);
-            document.querySelectorAll(".like").forEach(like => {
-                like.addEventListener("click", hjerteFunktion);
-
-            })
             liste.innerHTML = "";
-            podcasts.forEach(podcasts => {
-                if (filterPodcast == "alle" || podcasts.categories.includes(parseInt(filterPodcast))) {
+            produkter.forEach(produkter => {
+                if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
                     const klon = skabelon.cloneNode(true).content;
-                    klon.querySelector("h2").textContent = podcasts.title.rendered;
-                    // --------------------------------------------------------------------------------"podcasts"
-                    klon.querySelector("img").src = podcasts.billede.guid;
-                    klon.querySelector("img").alt = podcasts.billede.post_title;
-                    klon.querySelector(".kort_beskrivelse").innerHTML = podcasts.kort_beskrivelse;
-                    klon.querySelector(".podcastpic").addEventListener("click", () => {
-                        location.href = podcasts.link;
+                    klon.querySelector("h2").innerHTML = produkter.title.rendered + produkter.pris;
+                    // --------------------------------------------------------------------------------"produkter"
+                    klon.querySelector("img").src = produkter.billede.guid;
+                    klon.querySelector("img").alt = produkter.billede.post_title;
+
+                    klon.querySelector(".produktpic").addEventListener("click", () => {
+                        location.href = produkter.link;
                     })
                     liste.appendChild(klon);
                 }
             })
-
         }
 
     </script>
