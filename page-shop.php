@@ -58,7 +58,7 @@ the_content();
     <style>
         /* ------------------------------------------------ */
 
-        main {
+        template {
             max-width: 1000px;
             margin: 0 auto;
             display: grid;
@@ -81,7 +81,7 @@ the_content();
 
         @media screen and (min-width:768px) {
 
-            main {
+            template {
                 grid-template-columns: repeat(5, 1fr);
                 grid-auto-flow: dense;
 
