@@ -76,7 +76,7 @@ the_content();
         }
 
         article{
-            max-height: 60px;
+            max-height: 100px;
         }
 
         article:nth-child(odd) {
