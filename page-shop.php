@@ -92,7 +92,7 @@ the_content();
 
 
 
-    #podcast-oversigt {
+    #produkt-oversigt {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-gap: 0.8em;
@@ -100,14 +100,14 @@ the_content();
 
 
 
-    .podcastpic {
+    .produktpic {
         width: 100%;
         border: 5px solid white;
         transition: 0.2s ease-out;
         cursor: pointer;
     }
 
-    .podcastpic:hover{
+    .produktpic:hover{
         transform: scale(1.02);
     }
 
