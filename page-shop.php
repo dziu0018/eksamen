@@ -56,6 +56,55 @@ the_content();
     </template>
 
     <style>
+        /* ------------------------------------------------ */
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            background: #ccc;
+            grid-gap: 10px;
+        }
+
+        article {
+            border: 1px solid #000;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        article:nth-child(odd) {
+            background: #fff;
+
+        }
+
+        @media screen and (min-width:768px) {
+
+            main {
+                grid-template-columns: repeat(5, 1fr);
+                grid-auto-flow: dense;
+
+            }
+
+            article:nth-child(odd) {
+                grid-column: span 4;
+            }
+
+
+            article:nth-child(4n -1) {
+
+                background: #ca1;
+                grid-column: 2 / span 4;
+            }
+
+            article:nth-child(4) {}
+
+        }
+
+        /* ------------------------------------------------ */
+
+
         body {
             padding: 0;
             margin: 0;
