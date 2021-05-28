@@ -55,6 +55,152 @@ the_content();
         </article>
     </template>
 
+    <style>
+    body {
+        padding: 0;
+        margin: 0;
+        background: rgb(255, 144, 132);
+        background: linear-gradient(180deg, rgba(255, 144, 132, 1) 34%, rgba(237, 76, 95, 1) 100%);
+    }
+
+
+
+    main {
+        padding-right: 40px;
+        padding-left: 40px;
+        width: 100%;
+
+
+
+    }
+
+    .like {
+        color: #DB083A;
+        font-size: 2em;
+        cursor: pointer;
+    }
+
+    .heart {
+        color: white;
+        font-size: 2em;
+
+    }
+
+    .hjerte{
+        padding-top: 15px;
+    }
+
+
+
+    #podcast-oversigt {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 0.8em;
+    }
+
+
+
+    .podcastpic {
+        width: 100%;
+        border: 5px solid white;
+        transition: 0.2s ease-out;
+        cursor: pointer;
+    }
+
+    .podcastpic:hover{
+        transform: scale(1.02);
+    }
+
+
+
+    h2 {
+        color: white;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+
+
+    h1 {
+        text-align: center;
+        color: #DBAA1F;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+
+
+    p {
+        color: white;
+    }
+
+
+
+    article {
+        padding: 20px;
+    }
+
+
+    .menu-toggle,
+    button,
+    .ast-button,
+    .ast-custom-button,
+    .button,
+    input#submit,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #DB083A;
+
+
+
+    }
+
+
+
+    #filtrering {
+        padding: 20px;
+        text-align: center;
+    }
+
+
+
+    button {
+        font-size: 1.6em;
+        margin: 10px;
+        color: white;
+        text-transform: uppercase;
+        transition: 0.2s linear;
+        background-color: rgba(51, 51, 51, 0);
+        border-radius: 6px;
+        padding: 0.8em 0.2em 0.8em 0.2em;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+
+
+    button:hover {
+        transform: scale(1.1);
+        color: #DB083A;
+        background-color: rgba(51, 51, 51, 0);
+        cursor: pointer;
+    }
+
+
+
+    button.active {
+        color: #DB083A;
+    }
+
+
+
+    button:focus {
+        border-color: rgba(51, 51, 51, 0);
+        background-color: rgba(51, 51, 51, 0);
+    }
+
+</style>
+
     <script>
         let produkter = [];
         let categories;
