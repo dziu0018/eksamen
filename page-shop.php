@@ -56,130 +56,130 @@ the_content();
     </template>
 
     <style>
-    body {
-        padding: 0;
-        margin: 0;
-        background: rgb(255, 144, 132);
-        background: linear-gradient(180deg, rgba(255, 144, 132, 1) 34%, rgba(237, 76, 95, 1) 100%);
-    }
+        body {
+            padding: 0;
+            margin: 0;
+            background: rgb(255, 144, 132);
+            background: linear-gradient(180deg, rgba(255, 144, 132, 1) 34%, rgba(237, 76, 95, 1) 100%);
+        }
 
 
 
-    main {
-        padding-right: 40px;
-        padding-left: 40px;
-        width: 100%;
+        main {
+            padding-right: 40px;
+            padding-left: 40px;
+            width: 100%;
 
-    }
+        }
 
-    #produkt-oversigt {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 0.8em;
-    }
-
-
-
-    .produktpic {
-        width: 100%;
-        border: 5px solid white;
-        transition: 0.2s ease-out;
-        cursor: pointer;
-    }
-
-    .produktpic:hover{
-        transform: scale(1.02);
-    }
+        #produkt-oversigt {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 0.8em;
+        }
 
 
 
-    h2 {
-        color: white;
-        font-family: 'Josefin Sans', sans-serif;
-    }
+        .produktpic {
+            width: 100%;
+            border: 5px solid white;
+            transition: 0.2s ease-out;
+            cursor: pointer;
+        }
+
+        .produktpic:hover {
+            transform: scale(1.02);
+        }
 
 
 
-    h1 {
-        text-align: center;
-        color: #DBAA1F;
-        font-family: 'Josefin Sans', sans-serif;
-    }
+        h2 {
+            color: white;
+            font-family: 'Josefin Sans', sans-serif;
+        }
 
 
 
-    p {
-        color: white;
-    }
+        h1 {
+            text-align: center;
+            color: #DBAA1F;
+            font-family: 'Josefin Sans', sans-serif;
+        }
 
 
 
-    article {
-        padding: 20px;
-    }
-
-
-    .menu-toggle,
-    button,
-    .ast-button,
-    .ast-custom-button,
-    .button,
-    input#submit,
-    input[type="button"],
-    input[type="submit"],
-    input[type="reset"] {
-        padding-left: 10px;
-        padding-right: 10px;
-        background-color: #DB083A;
+        p {
+            color: white;
+        }
 
 
 
-    }
+        article {
+            padding: 20px;
+        }
+
+
+        .menu-toggle,
+        button,
+        .ast-button,
+        .ast-custom-button,
+        .button,
+        input#submit,
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"] {
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: #DB083A;
 
 
 
-    #filtrering {
-        padding: 20px;
-        text-align: center;
-    }
+        }
 
 
 
-    button {
-        font-size: 1.6em;
-        margin: 10px;
-        color: white;
-        text-transform: uppercase;
-        transition: 0.2s linear;
-        background-color: rgba(51, 51, 51, 0);
-        border-radius: 6px;
-        padding: 0.8em 0.2em 0.8em 0.2em;
-        font-family: 'Josefin Sans', sans-serif;
-    }
+        #filtrering {
+            padding: 20px;
+            text-align: center;
+        }
 
 
 
-    button:hover {
-        transform: scale(1.1);
-        color: #DB083A;
-        background-color: rgba(51, 51, 51, 0);
-        cursor: pointer;
-    }
+        button {
+            font-size: 1.6em;
+            margin: 10px;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s linear;
+            background-color: rgba(51, 51, 51, 0);
+            border-radius: 6px;
+            padding: 0.8em 0.2em 0.8em 0.2em;
+            font-family: 'Josefin Sans', sans-serif;
+        }
 
 
 
-    button.active {
-        color: #DB083A;
-    }
+        button:hover {
+            transform: scale(1.1);
+            color: #DB083A;
+            background-color: rgba(51, 51, 51, 0);
+            cursor: pointer;
+        }
 
 
 
-    button:focus {
-        border-color: rgba(51, 51, 51, 0);
-        background-color: rgba(51, 51, 51, 0);
-    }
+        button.active {
+            color: #DB083A;
+        }
 
-</style>
+
+
+        button:focus {
+            border-color: rgba(51, 51, 51, 0);
+            background-color: rgba(51, 51, 51, 0);
+        }
+
+    </style>
 
     <script>
         let produkter = [];
@@ -260,7 +260,7 @@ the_content();
             produkter.forEach(produkter => {
                 if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
                     const klon = skabelon.cloneNode(true).content;
-                    klon.querySelector("h2").innerHTML = produkter.title.rendered + produkter.pris;
+                    klon.querySelector("h2").innerHTML = produkter.title.rendered + " - " + produkter.pris;
                     // --------------------------------------------------------------------------------"produkter"
                     klon.querySelector("img").src = produkter.billede.guid;
                     klon.querySelector("img").alt = produkter.billede.post_title;
