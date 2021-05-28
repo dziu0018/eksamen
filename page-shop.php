@@ -58,7 +58,7 @@ the_content();
     <style>
         /* ------------------------------------------------ */
 
-        template {
+        #produkt-oversigt {
             max-width: 1000px;
             margin: 0 auto;
             display: grid;
@@ -81,7 +81,7 @@ the_content();
 
         @media screen and (min-width:768px) {
 
-            template {
+            #produkt-oversigt {
                 grid-template-columns: repeat(5, 1fr);
                 grid-auto-flow: dense;
 
@@ -121,12 +121,13 @@ the_content();
 
         }
 
+        /*
         #produkt-oversigt {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             grid-gap: 0.8em;
         }
-
+*/
 
 
         .produktpic {
