@@ -70,27 +70,7 @@ the_content();
         padding-left: 40px;
         width: 100%;
 
-
-
     }
-
-    .like {
-        color: #DB083A;
-        font-size: 2em;
-        cursor: pointer;
-    }
-
-    .heart {
-        color: white;
-        font-size: 2em;
-
-    }
-
-    .hjerte{
-        padding-top: 15px;
-    }
-
-
 
     #produkt-oversigt {
         display: grid;
