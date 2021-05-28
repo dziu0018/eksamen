@@ -75,10 +75,6 @@ the_content();
             max-width: 100%;
         }
 
-        article{
-            max-height: 200px;
-        }
-
         article:nth-child(odd) {
 
         }
