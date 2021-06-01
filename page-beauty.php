@@ -62,7 +62,7 @@ get_header(); ?>
             grid-gap: 10px;
         }
 
-/*
+        /*
         article {
             border: 1px solid #000;
         }
@@ -72,9 +72,7 @@ get_header(); ?>
             max-width: 100%;
         }
 
-        article:nth-child(odd) {
-
-        }
+        article:nth-child(odd) {}
 
         @media screen and (min-width:768px) {
 
@@ -248,15 +246,15 @@ get_header(); ?>
         }
 
 
-        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?per_page=100";
-        const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories";
+        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=5";
+        //const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories/8";
 
         async function getJson() {
             console.log("getJson");
             let response = await fetch(url);
-            let catresponse = await fetch(catUrl);
+            //let catresponse = await fetch(catUrl);
             produkter = await response.json();
-            categories = await catresponse.json();
+            //categories = await catresponse.json();
             console.log(categories);
             visProdukter();
             //opretknapper();
@@ -267,38 +265,38 @@ get_header(); ?>
 
 
 
-            // ------------------------------------------------------ DETTE ER USIKKERT!!!!!!
-           // categories.forEach(cat => {
-             //   if (cat.name == "Alle") {
-               //     document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-produkt="${cat.id}">${cat.name}</button>`
-               // } else {
-                //    document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
-               // }
-          //  })
+        // ------------------------------------------------------ DETTE ER USIKKERT!!!!!!
+        // categories.forEach(cat => {
+        //   if (cat.name == "Alle") {
+        //     document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-produkt="${cat.id}">${cat.name}</button>`
+        // } else {
+        //    document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
+        // }
+        //  })
 
-         //   addEventListenerToButtons();
-      //  }
-
-
-       // function addEventListenerToButtons() {
-
-       //     document.querySelectorAll("#filtrering button").forEach(elm => {
-       //         elm.addEventListener("click", filtrering);
-       //     })
-      //  }
+        //   addEventListenerToButtons();
+        //  }
 
 
-     //   function filtrering() {
-       //     document.querySelectorAll("#filtrering button").forEach(elm => {
-       //         elm.classList.remove("active")
-      //      });
-      //      filterProdukt = this.dataset.produkt;
-      //      console.log(filterProdukt);
-      //      visProdukter();
-     //   }
+        // function addEventListenerToButtons() {
+
+        //     document.querySelectorAll("#filtrering button").forEach(elm => {
+        //         elm.addEventListener("click", filtrering);
+        //     })
+        //  }
 
 
-        function visProdukter() {
+        //   function filtrering() {
+        //     document.querySelectorAll("#filtrering button").forEach(elm => {
+        //         elm.classList.remove("active")
+        //      });
+        //      filterProdukt = this.dataset.produkt;
+        //      console.log(filterProdukt);
+        //      visProdukter();
+        //   }
+
+
+        /*function visProdukter() {
             console.log(produkter);
 
             liste.innerHTML = "";
@@ -315,6 +313,23 @@ get_header(); ?>
                     })
                     liste.appendChild(klon);
                 }
+            })
+        }*/
+
+
+
+        function visProdukter() {
+            let temp = document.querySelector("template");
+            let container = document.querySelector("#main");
+            produkter.forEach(produkter => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").innerHTML = produkter.title.rendered + " - " + produkter.pris;
+                klon.querySelector("img").src = produkter.billede.guid;
+                klon.querySelector("img").alt = produkter.billede.post_title;
+                klon.querySelector(".produktpic").addEventListener("click", () => {
+                    location.href = produkter.link;
+                })
+                liste.appendChild(klon);
             })
         }
 
