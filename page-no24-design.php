@@ -246,15 +246,15 @@ get_header(); ?>
         }
 
 
-        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=1";
+        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=7";
         //const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories/8";
 
         async function getJson() {
             console.log("getJson");
             let response = await fetch(url);
-            let catresponse = await fetch(catUrl);
+            //let catresponse = await fetch(catUrl);
             produkter = await response.json();
-            categories = await catresponse.json();
+            //categories = await catresponse.json();
             console.log(categories);
             visProdukter();
             //opretknapper();
