@@ -321,7 +321,7 @@ get_header(); ?>
         function visProdukter() {
             let temp = document.querySelector("template");
             let container = document.querySelector("#main");
-            produkter.forEach(produkt => {
+            produkter.forEach(produkter => {
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector("h2").innerHTML = produkter.title.rendered + " - " + produkter.pris;
                 klon.querySelector("img").src = produkter.billede.guid;
