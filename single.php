@@ -33,7 +33,10 @@ get_header(); ?>
 
     <?php astra_primary_content_bottom(); ?>
 
-
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
 
     <main id="main" class="site-main">
         <nav id="filtrering"></nav>
@@ -47,7 +50,16 @@ get_header(); ?>
 
     <template>
         <article>
+           <div>
             <img class="produktpic" src="" alt="">
+            </div>
+        </article>
+        <article>
+            <div>
+            <img class="produktpic1" src="" alt="">
+            </div>
+        </article>
+        <article>
             <h2></h2>
             <h3></h3>
         </article>
@@ -56,11 +68,23 @@ get_header(); ?>
     <style>
         /* ------------------------------------------------ */
 
+        .ast-separate-container .ast-article-post,
+        .ast-separate-container .ast-article-single:not(.ast-related-post) {
+            display: none;
+        }
+
+        .ast-single-post .entry-title,
+        .page-title {
+            display: none;
+        }
+
+        .single .post-navigation .nav-links {
+            display: none;
+        }
+
         #produkt-oversigt {
-            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-gap: 10px;
+
         }
 
         /*
@@ -69,7 +93,14 @@ get_header(); ?>
         }
 */
 
-        img {
+        .produktpic {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            box-shadow: 0px 0px 6px #8b8b8b;
+        }
+
+        .produktpic1 {
             width: 250px;
             height: 250px;
             object-fit: cover;
@@ -82,8 +113,7 @@ get_header(); ?>
 
             #produkt-oversigt {
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                grid-gap: 0.8em;
+                grid-template-columns: 1fr 1fr;
 
             }
 
@@ -95,8 +125,8 @@ get_header(); ?>
         body {
             padding: 0;
             margin: 0;
-            background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(245,240,236,1) 20%, rgba(245,240,236,1) 40%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 65%, rgba(247,234,222,1) 65%, rgba(247,234,222,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%);
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
         }
 
 
@@ -131,15 +161,14 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
         h2 {
             color: #4A4951;
             font-family: 'Quicksand', sans-serif;
-            font-size: 1.2rem;
+            font-size: 2rem;
             font-weight: 500;
-            padding-top: 8px;
         }
 
         h3 {
             color: #4A4951;
             font-family: 'Quicksand', sans-serif;
-            font-size: 1rem;
+            font-size: 1.6rem;
         }
 
 
@@ -172,8 +201,10 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
 
     <script>
         let produkter = [];
+        let products;
         let categories;
         let filterCategory = "alle";
+        let aktuelProdukt = <?php echo get_the_ID() ?>;
 
         const liste = document.querySelector("#produkt-oversigt");
         const skabelon = document.querySelector("template");
@@ -192,15 +223,15 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
         }
 
 
-        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=6";
-        //const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories/8";
+        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product/" + aktuelProdukt;
+        const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories";
 
         async function getJson() {
             console.log("getJson");
             let response = await fetch(url);
-            //let catresponse = await fetch(catUrl);
+            let catresponse = await fetch(catUrl);
             produkter = await response.json();
-            //categories = await catresponse.json();
+            categories = await catresponse.json();
             console.log(categories);
             visProdukter();
             //opretknapper();
@@ -242,47 +273,18 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
         //   }
 
 
-        /*function visProdukter() {
-            console.log(produkter);
-
-            liste.innerHTML = "";
-            produkter.forEach(produkter => {
-                if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
-                    const klon = skabelon.cloneNode(true).content;
-                    klon.querySelector("h2").innerHTML = produkter.title.rendered + " - " + produkter.pris;
-                    // --------------------------------------------------------------------------------"produkter"
-                    klon.querySelector("img").src = produkter.billede.guid;
-                    klon.querySelector("img").alt = produkter.billede.post_title;
-
-                    klon.querySelector(".produktpic").addEventListener("click", () => {
-                        location.href = produkter.link;
-                    })
-                    liste.appendChild(klon);
-                }
-            })
-        }*/
-
-
-
         function visProdukter() {
-            console.log(produkter);
+            console.log("visProdukter");
+            let klon = skabelon.cloneNode(true).content;
+            klon.querySelector(".produktpic").src = produkter.billede.guid;
+            klon.querySelector(".produktpic").alt = produkter.billede.post_title;
+            klon.querySelector(".produktpic1").src = produkter.billede1.guid;
+            klon.querySelector(".produktpic1").alt = produkter.billede1.post_title;
+            klon.querySelector("h2").innerHTML = produkter.title.rendered;
+            klon.querySelector("h3").innerHTML = produkter.pris;
 
-            liste.innerHTML = "";
-            produkter.forEach(produkter => {
-                if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
-                    const klon = skabelon.cloneNode(true).content;
-                    klon.querySelector("h2").innerHTML = produkter.title.rendered;
-                    klon.querySelector("h3").innerHTML = produkter.pris;
-                    // --------------------------------------------------------------------------------"produkter"
-                    klon.querySelector("img").src = produkter.billede.guid;
-                    klon.querySelector("img").alt = produkter.billede.post_title;
-
-                    klon.querySelector(".produktpic").addEventListener("click", () => {
-                        location.href = produkter.link;
-                    })
-                    liste.appendChild(klon);
-                }
-            })
+            console.log("produkt", produkter.link);
+            liste.appendChild(klon);
         }
 
     </script>

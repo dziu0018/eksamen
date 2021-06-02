@@ -73,6 +73,7 @@ get_header(); ?>
             width: 250px;
             height: 250px;
             object-fit: cover;
+            box-shadow: 0px 0px 6px #8b8b8b;
         }
 
         article:nth-child(odd) {}
@@ -132,6 +133,7 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
             font-family: 'Quicksand', sans-serif;
             font-size: 1.2rem;
             font-weight: 500;
+            padding-top: 8px;
         }
 
         h3 {
