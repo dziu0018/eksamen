@@ -125,10 +125,11 @@ get_header(); ?>
         body {
             padding: 0;
             margin: 0;
-            background: rgb(255, 255, 255);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
-        }
+            background: rgb(245,240,236);
+background: linear-gradient(180deg, rgba(245,240,236,1) 0%, rgba(245,240,236,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
 
+
+}
 
 
         main {
