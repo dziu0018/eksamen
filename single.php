@@ -71,7 +71,7 @@ get_header(); ?>
             </div>
         </div>
 
-        <!--   <article>
+        <!--        <article>
             <div>
                 <img class="produktpic" src="" alt="">
             </div>
@@ -80,11 +80,11 @@ get_header(); ?>
             <div>
                 <img class="produktpic1" src="" alt="">
             </div>
-        </article>
+        </article>-->
         <article>
             <h2></h2>
             <h3></h3>
-        </article>-->
+        </article>
     </template>
 
 
@@ -407,13 +407,13 @@ get_header(); ?>
             }
             // For = loop igennem kode et antal gange
             for (i = 0; i < slides.length; i++) { // SÃ¦tter fÃ¸rst i = 0. Derefter, hvis i(0) < 2(slide.length) sÃ¥ plus Ã©n til i.
-                slides[i].style.display = "none"; // variable "slides" fÃ¥r tallet 1 og sÃ¦tter display til none
+                slides[i].display = "none"; // variable "slides" fÃ¥r tallet 1 og sÃ¦tter display til none
             }
             for (i = 0; i < dots.length; i++) { // SÃ¦tter fÃ¸rst i = 0. Derefter, hvis i(0) < 2 (dot.length) sÃ¥ plus Ã©n til i.
                 dots[i].className = dots[i].className.replace(" valgt_dot", ""); // variable "dot" fÃ¥r tallet 1 og erstatter classname "valgt_dot" med ingenting
             }
 
-            slides[slideNummer - 1].style.display = "block"; // de billeder hvor i = 0 fÃ¥r display block, sÃ¥ledes at man ikke kan se billederne
+            slides[slideNummer - 1].display = "block"; // de billeder hvor i = 0 fÃ¥r display block, sÃ¥ledes at man ikke kan se billederne
             dots[slideNummer - 1].className += " valgt_dot"; // Den prik uden i = 0 fÃ¥r tilfÃ¸jet klassen "valgt_dot"
         }
 
