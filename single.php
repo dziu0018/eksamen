@@ -50,13 +50,13 @@ get_header(); ?>
 
     <template>
         <article>
-           <div>
-            <img class="produktpic" src="" alt="">
+            <div>
+                <img class="produktpic" src="" alt="">
             </div>
         </article>
         <article>
             <div>
-            <img class="produktpic1" src="" alt="">
+                <img class="produktpic1" src="" alt="">
             </div>
         </article>
         <article>
@@ -64,6 +64,27 @@ get_header(); ?>
             <h3></h3>
         </article>
     </template>
+
+    <div class="column" id="slideshow">
+        <div class="billede_slideshow">
+            <img class="img1" src="#" alt="">
+        </div>
+        <div class="billede_slideshow">
+            <img class="img2" src="#" alt="">
+        </div>
+        <div class="billede_slideshow">
+            <img class="img3" src="#" alt="">
+        </div>
+        <div class="skift_billede">
+            <button class="tilbage" onclick="plusSlides(-1)">❮</button>
+            <div>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="frem" onclick="plusSlides(1)">❯</button>
+        </div>
+    </div>
 
     <style>
         /* ------------------------------------------------ */
@@ -125,11 +146,11 @@ get_header(); ?>
         body {
             padding: 0;
             margin: 0;
-            background: rgb(245,240,236);
-background: linear-gradient(180deg, rgba(245,240,236,1) 0%, rgba(245,240,236,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+            background: rgb(245, 240, 236);
+            background: linear-gradient(180deg, rgba(245, 240, 236, 1) 0%, rgba(245, 240, 236, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
 
 
-}
+        }
 
 
         main {
@@ -286,6 +307,56 @@ background: linear-gradient(180deg, rgba(245,240,236,1) 0%, rgba(245,240,236,1) 
 
             console.log("produkt", produkter.link);
             liste.appendChild(klon);
+        }
+
+
+
+
+
+        // sÃ¦tter variablen "slideNummer" = 1
+        let slideNummer = 1;
+
+        visSlides(slideNummer); // Kalder funktionen "visSlides" og sender slideNummer vÃ¦rdien med (dvs. 1). funktionen visSlide fÃ¥r vÃ¦rdien fra variablen "slideNummer" med sig
+
+        function plusSlides(n) {
+            console.log("N:" + n); // n = 1 ved pil frem og -1 ved pil tilbage. Det er angivet i HTML filen.
+            visSlides(slideNummer += n); // Kalder funktionen "visSlides" og sender slideNummer vÃ¦rdien med, samt lÃ¦gger n (1/-1) til.
+        }
+
+        // KÃ¸r funktion visSlides - har vÃ¦rdien fra "n" med sig (1/-1)
+        function visSlides(n) {
+
+            let i; // Opretter variablen i sÃ¥ den kan tÃ¦lles pÃ¥
+            let slides = document.getElementsByClassName("billede_slideshow"); // Opretter variablen slides = classerne med "billede_slideshow"
+            let dots = document.getElementsByClassName("dot"); // Opretter varibalen dots = classerne med "dot"
+
+            // To if-sÃ¦tninger til at styre hvilket nummer af ".billede_slideshow" der skal vises.
+            // Hvis n (her 4) > 3 sÃ¥ sÃ¦t slideNummer = 1, sÃ¥ledes at billede 1 bliver vist (se consollen)
+            if (n > slides.length) {
+                console.log("N = " + n); // N = 4 da n bliver 3(slideNummer) + 1(n) = 4
+                console.log("Hvor mange img'er der = " + slides.length); // Der er 2 diver med classen billede_slideshow
+
+                slideNummer = 1 // SÃ¦t slideNummer = 1 dvs vis billede 1
+            }
+
+            // Hvis n (her 0) < 1 sÃ¥ sÃ¦t slideNummer = 3 sÃ¥ledes at billede 3 bliver vist
+            if (n < 1) {
+                console.log("N = " + n); // N = 0 da n bliver 1 - 1 = 0
+                console.log("Hvor mange img'er der = " + slides.length); // Der er 3 diver med classen billede_slideshow
+
+
+                slideNummer = slides.length // SÃ¦t slideNummer = 3 dvs vis billede 3
+            }
+            // For = loop igennem kode et antal gange
+            for (i = 0; i < slides.length; i++) { // SÃ¦tter fÃ¸rst i = 0. Derefter, hvis i(0) < 2(slide.length) sÃ¥ plus Ã©n til i.
+                slides[i].style.display = "none"; // variable "slides" fÃ¥r tallet 1 og sÃ¦tter display til none
+            }
+            for (i = 0; i < dots.length; i++) { // SÃ¦tter fÃ¸rst i = 0. Derefter, hvis i(0) < 2 (dot.length) sÃ¥ plus Ã©n til i.
+                dots[i].className = dots[i].className.replace(" valgt_dot", ""); // variable "dot" fÃ¥r tallet 1 og erstatter classname "valgt_dot" med ingenting
+            }
+
+            slides[slideNummer - 1].style.display = "block"; // de billeder hvor i = 0 fÃ¥r display block, sÃ¥ledes at man ikke kan se billederne
+            dots[slideNummer - 1].className += " valgt_dot"; // Den prik uden i = 0 fÃ¥r tilfÃ¸jet klassen "valgt_dot"
         }
 
     </script>
