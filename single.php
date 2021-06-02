@@ -57,15 +57,12 @@ get_header(); ?>
             <div class="billede_slideshow">
                 <img class="img2" src="#" alt="">
             </div>
-            <div class="billede_slideshow">
-                <img class="img3" src="#" alt="">
-            </div>
             <div class="skift_billede">
                 <button class="tilbage" onclick="plusSlides(-1)">❮</button>
                 <div>
                     <span class="dot"></span>
                     <span class="dot"></span>
-                    <span class="dot"></span>
+
                 </div>
                 <button class="frem" onclick="plusSlides(1)">❯</button>
             </div>
