@@ -219,6 +219,61 @@ get_header(); ?>
             text-align: center;
         }
 
+
+
+
+
+        .billede_slideshow img {
+            object-fit: cover;
+            height: 50vh;
+            width: 100vw;
+        }
+
+        .skift_billede {
+            display: flex;
+            margin-top: 1vw;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .frem,
+        .tilbage {
+            color: #567356;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            font-size: 1.7rem;
+        }
+
+        .frem {
+            right: 1vw;
+        }
+
+        .tilbage {
+            left: 1vw;
+        }
+
+        .frem:hover,
+        .tilbage:hover {
+            background-color: transparent;
+            color: #CA9C2C;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #85A69B;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .valgt_dot {
+            background-color: #4C6E72;
+        }
+
     </style>
 
     <script>
@@ -298,10 +353,10 @@ get_header(); ?>
         function visProdukter() {
             console.log("visProdukter");
             let klon = skabelon.cloneNode(true).content;
-            klon.querySelector(".produktpic").src = produkter.billede.guid;
-            klon.querySelector(".produktpic").alt = produkter.billede.post_title;
-            klon.querySelector(".produktpic1").src = produkter.billede1.guid;
-            klon.querySelector(".produktpic1").alt = produkter.billede1.post_title;
+            klon.querySelector(".img1").src = produkter.billede.guid;
+            klon.querySelector(".img1").alt = produkter.billede.post_title;
+            klon.querySelector(".img2").src = produkter.billede1.guid;
+            klon.querySelector(".img2").alt = produkter.billede1.post_title;
             klon.querySelector("h2").innerHTML = produkter.title.rendered;
             klon.querySelector("h3").innerHTML = produkter.pris;
 
@@ -313,17 +368,17 @@ get_header(); ?>
 
 
 
-        // sÃ¦tter variablen "slideNummer" = 1
+        // sætter variablen "slideNummer" = 1
         let slideNummer = 1;
 
-        visSlides(slideNummer); // Kalder funktionen "visSlides" og sender slideNummer vÃ¦rdien med (dvs. 1). funktionen visSlide fÃ¥r vÃ¦rdien fra variablen "slideNummer" med sig
+        visSlides(slideNummer); // Kalder funktionen "visSlides" og sender slideNummer værdien med (dvs. 1). funktionen visSlide får værdien fra variablen "slideNummer" med sig
 
         function plusSlides(n) {
             console.log("N:" + n); // n = 1 ved pil frem og -1 ved pil tilbage. Det er angivet i HTML filen.
-            visSlides(slideNummer += n); // Kalder funktionen "visSlides" og sender slideNummer vÃ¦rdien med, samt lÃ¦gger n (1/-1) til.
+            visSlides(slideNummer += n); // Kalder funktionen "visSlides" og sender slideNummer værdien med, samt lægger n (1/-1) til.
         }
 
-        // KÃ¸r funktion visSlides - har vÃ¦rdien fra "n" med sig (1/-1)
+        // KÃ¸r funktion visSlides - har værdien fra "n" med sig (1/-1)
         function visSlides(n) {
 
             let i; // Opretter variablen i sÃ¥ den kan tÃ¦lles pÃ¥
