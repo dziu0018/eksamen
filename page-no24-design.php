@@ -49,6 +49,7 @@ get_header(); ?>
         <article>
             <img class="produktpic" src="" alt="">
             <h2></h2>
+            <h3></h3>
         </article>
     </template>
 
@@ -56,7 +57,7 @@ get_header(); ?>
         /* ------------------------------------------------ */
 
         #produkt-oversigt {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-gap: 10px;
@@ -69,7 +70,9 @@ get_header(); ?>
 */
 
         img {
-            max-width: 100%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
         }
 
         article:nth-child(odd) {}
@@ -77,22 +80,11 @@ get_header(); ?>
         @media screen and (min-width:768px) {
 
             #produkt-oversigt {
-                grid-template-columns: repeat(5, 1fr);
-                grid-auto-flow: dense;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                grid-gap: 0.8em;
 
             }
-
-            article:nth-child(odd) {
-                grid-column: span 4;
-            }
-
-
-            article:nth-child(4n -1) {
-
-                grid-column: 2 / span 4;
-            }
-
-            article:nth-child(4) {}
 
         }
 
@@ -102,8 +94,8 @@ get_header(); ?>
         body {
             padding: 0;
             margin: 0;
-            background: rgb(255, 144, 132);
-            background: linear-gradient(180deg, rgba(255, 144, 132, 1) 34%, rgba(237, 76, 95, 1) 100%);
+            background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(245,240,236,1) 20%, rgba(245,240,236,1) 40%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 65%, rgba(247,234,222,1) 65%, rgba(247,234,222,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%);
         }
 
 
@@ -125,7 +117,6 @@ get_header(); ?>
 
 
         .produktpic {
-            width: 100%;
             transition: 0.2s ease-out;
             cursor: pointer;
         }
@@ -137,9 +128,16 @@ get_header(); ?>
 
 
         h2 {
-            color: black;
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 1.5rem;
+            color: #4A4951;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        h3 {
+            color: #4A4951;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
         }
 
 
@@ -162,64 +160,10 @@ get_header(); ?>
         }
 
 
-        .menu-toggle,
-        button,
-        .ast-button,
-        .ast-custom-button,
-        .button,
-        input#submit,
-        input[type="button"],
-        input[type="submit"],
-        input[type="reset"] {
-            padding-left: 10px;
-            padding-right: 10px;
-            background-color: #DB083A;
-
-
-
-        }
-
-
 
         #filtrering {
             padding: 20px;
             text-align: center;
-        }
-
-
-
-        button {
-            font-size: 1.6em;
-            margin: 10px;
-            color: white;
-            text-transform: uppercase;
-            transition: 0.2s linear;
-            background-color: rgba(51, 51, 51, 0);
-            border-radius: 6px;
-            padding: 0.8em 0.2em 0.8em 0.2em;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-
-
-
-        button:hover {
-            transform: scale(1.1);
-            color: #DB083A;
-            background-color: rgba(51, 51, 51, 0);
-            cursor: pointer;
-        }
-
-
-
-        button.active {
-            color: #DB083A;
-        }
-
-
-
-        button:focus {
-            border-color: rgba(51, 51, 51, 0);
-            background-color: rgba(51, 51, 51, 0);
         }
 
     </style>
@@ -318,18 +262,24 @@ get_header(); ?>
 
 
 
-        function visProdukter() {
-            let temp = document.querySelector("template");
-            let container = document.querySelector("#main");
+     function visProdukter() {
+            console.log(produkter);
+
+            liste.innerHTML = "";
             produkter.forEach(produkter => {
-                let klon = temp.cloneNode(true).content;
-                klon.querySelector("h2").innerHTML = produkter.title.rendered + " - " + produkter.pris;
-                klon.querySelector("img").src = produkter.billede.guid;
-                klon.querySelector("img").alt = produkter.billede.post_title;
-                klon.querySelector(".produktpic").addEventListener("click", () => {
-                    location.href = produkter.link;
-                })
-                liste.appendChild(klon);
+                if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
+                    const klon = skabelon.cloneNode(true).content;
+                    klon.querySelector("h2").innerHTML = produkter.title.rendered;
+                    klon.querySelector("h3").innerHTML = produkter.pris;
+                    // --------------------------------------------------------------------------------"produkter"
+                    klon.querySelector("img").src = produkter.billede.guid;
+                    klon.querySelector("img").alt = produkter.billede.post_title;
+
+                    klon.querySelector(".produktpic").addEventListener("click", () => {
+                        location.href = produkter.link;
+                    })
+                    liste.appendChild(klon);
+                }
             })
         }
 
