@@ -49,7 +49,29 @@ get_header(); ?>
 
 
     <template>
-        <article>
+
+        <div class="column" id="slideshow">
+            <div class="billede_slideshow">
+                <img class="img1" src="#" alt="">
+            </div>
+            <div class="billede_slideshow">
+                <img class="img2" src="#" alt="">
+            </div>
+            <div class="billede_slideshow">
+                <img class="img3" src="#" alt="">
+            </div>
+            <div class="skift_billede">
+                <button class="tilbage" onclick="plusSlides(-1)">❮</button>
+                <div>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="frem" onclick="plusSlides(1)">❯</button>
+            </div>
+        </div>
+
+        <!--   <article>
             <div>
                 <img class="produktpic" src="" alt="">
             </div>
@@ -62,29 +84,10 @@ get_header(); ?>
         <article>
             <h2></h2>
             <h3></h3>
-        </article>
+        </article>-->
     </template>
 
-    <div class="column" id="slideshow">
-        <div class="billede_slideshow">
-            <img class="img1" src="#" alt="">
-        </div>
-        <div class="billede_slideshow">
-            <img class="img2" src="#" alt="">
-        </div>
-        <div class="billede_slideshow">
-            <img class="img3" src="#" alt="">
-        </div>
-        <div class="skift_billede">
-            <button class="tilbage" onclick="plusSlides(-1)">❮</button>
-            <div>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-            <button class="frem" onclick="plusSlides(1)">❯</button>
-        </div>
-    </div>
+
 
     <style>
         /* ------------------------------------------------ */
