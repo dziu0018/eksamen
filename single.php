@@ -172,7 +172,7 @@ get_header(); ?>
             border: solid 2px #4a4951;
             font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         @media screen and (min-width:768px) {
