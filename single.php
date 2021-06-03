@@ -36,53 +36,44 @@ get_header(); ?>
     <head>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     </head>
 
-    <main id="main" class="site-main">
-        <nav id="filtrering"></nav>
-        <div id="produkt-oversigt">
-        </div>
-    </main>
-
+    <section id="produkt-oversigt">
+    <button class="back-button">Back</button>
+    </section>
 
 
 
 
     <template>
+        <article>
+            <div class="row">
 
-        <div class="column" id="slideshow">
-            <div class="billede_slideshow">
-                <img class="img1" src="#" alt="">
-            </div>
-            <div class="billede_slideshow">
-                <img class="img2" src="#" alt="">
-            </div>
-            <div class="skift_billede">
-                <button class="tilbage" onclick="plusSlides(-1)">❮</button>
-                <div>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-
+                <div class="column">
+                   <div class="storebillede">
+                       <img class="img1" src="#" alt="">
+                   </div>
+                    <img class="img2 hide" src="#" width="171" height="171" alt="">
                 </div>
-                <button class="frem" onclick="plusSlides(1)">❯</button>
-            </div>
-        </div>
 
-        <!--        <article>
-            <div>
-                <img class="produktpic" src="" alt="">
+                <div class="column">
+                    <h2></h2>
+                    <h3></h3>
+                    <p></p>
+                    <div>
+                    <button class="knap1">Buy Now</button>
+                    </div>
+                    <div>
+                        <button class="knap2">Add to Cart</button>
+                    </div>
+                </div>
             </div>
-        </article>
-        <article>
-            <div>
-                <img class="produktpic1" src="" alt="">
-            </div>
-        </article>-->
-        <article>
-            <h2></h2>
-            <h3></h3>
         </article>
     </template>
+
+
 
 
 
@@ -103,38 +94,83 @@ get_header(); ?>
             display: none;
         }
 
-        #produkt-oversigt {
-            margin: 0 auto;
+        #primary {
+            width: 100%
+        }
+
+        .row {
+            padding-top: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .img2 {
+            margin-top: 20px;
+        }
+
+        .buttons{
+            display: flex;
+        }
+        .knap1{
+            width: 180px;
+            color: #F8534C;
+            background-color: white;
+            border: solid 2px #F8534C;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
 
         }
 
-        /*
-        article {
-            border: 1px solid #000;
-        }
-*/
+        .knap2{
+            margin-top: 1vw;
+            width: 180px;
+            color: #4a4951;
+            background-color: white;
+            border: solid 2px #4a4951;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
 
-        .produktpic {
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            box-shadow: 0px 0px 6px #8b8b8b;
-        }
-
-        .produktpic1 {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            box-shadow: 0px 0px 6px #8b8b8b;
         }
 
-        article:nth-child(odd) {}
+        .back-button{
+            margin-top: 2vw;
+            width: 137px;
+            color: #4a4951;
+            background-color: white;
+            border: solid 2px #4a4951;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+        }
 
         @media screen and (min-width:768px) {
 
-            #produkt-oversigt {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
+            .row {
+                display: flex;
+            }
+
+            .column {
+                flex: 33.33%;
+                padding-left: 3vw;
+            }
+
+            .storebillede{
+                overflow: hidden;
+                margin: 0 auto;
+                box-shadow: 0px 0px 6px #8b8b8b;
+
+            }
+
+            .storebillede img{
+                width: 100%;
+                transition: 0.5s all ease-in-out;
+            }
+
+            .storebillede:hover img{
+                transform: scale(1.5);
+                cursor: crosshair;
 
             }
 
@@ -148,37 +184,13 @@ get_header(); ?>
             margin: 0;
             background: rgb(245, 240, 236);
             background: linear-gradient(180deg, rgba(245, 240, 236, 1) 0%, rgba(245, 240, 236, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
-
-
         }
 
-
-        main {
-            padding-right: 40px;
-            padding-left: 40px;
-            width: 100%;
-
-        }
-
-        /*
         #produkt-oversigt {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 0.8em;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-*/
-
-
-        .produktpic {
-            transition: 0.2s ease-out;
-            cursor: pointer;
-        }
-
-        .produktpic:hover {
-            transform: scale(1.02);
-        }
-
-
 
         h2 {
             color: #4A4951;
@@ -197,81 +209,23 @@ get_header(); ?>
 
         h1 {
             text-align: center;
-            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Quicksand', sans-serif;
         }
 
 
 
         p {
-            color: white;
+            color: #4A4951;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9em;
         }
 
-
-
-        article {
-            padding: 20px;
+        .column img {
+            box-shadow: 0px 0px 6px #8b8b8b;
         }
 
-
-
-        #filtrering {
-            padding: 20px;
-            text-align: center;
-        }
-
-
-
-
-
-        .billede_slideshow img {
-            object-fit: cover;
-            height: 50vh;
-            width: 100vw;
-        }
-
-        .skift_billede {
-            display: flex;
-            margin-top: 1vw;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-
-        .frem,
-        .tilbage {
-            color: #567356;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            background-color: transparent;
-            font-size: 1.7rem;
-        }
-
-        .frem {
-            right: 1vw;
-        }
-
-        .tilbage {
-            left: 1vw;
-        }
-
-        .frem:hover,
-        .tilbage:hover {
-            background-color: transparent;
-            color: #CA9C2C;
-        }
-
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #85A69B;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .valgt_dot {
-            background-color: #4C6E72;
+        .hide {
+            display: none;
         }
 
     </style>
@@ -355,64 +309,22 @@ get_header(); ?>
             let klon = skabelon.cloneNode(true).content;
             klon.querySelector(".img1").src = produkter.billede.guid;
             klon.querySelector(".img1").alt = produkter.billede.post_title;
-            klon.querySelector(".img2").src = produkter.billede1.guid;
-            klon.querySelector(".img2").alt = produkter.billede1.post_title;
+            if (produkter.billede1.guid) {
+                klon.querySelector(".img2").src = produkter.billede1.guid;
+                klon.querySelector(".img2").alt = produkter.billede1.post_title;
+                klon.querySelector(".img2").classList.remove("hide");
+            }
             klon.querySelector("h2").innerHTML = produkter.title.rendered;
             klon.querySelector("h3").innerHTML = produkter.pris;
-
+            klon.querySelector("p").innerHTML = produkter.langbeskrivelse;
             console.log("produkt", produkter.link);
             liste.appendChild(klon);
+            document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
         }
 
-
-
-
-
-        // sætter variablen "slideNummer" = 1
-        let slideNummer = 1;
-
-        visSlides(slideNummer); // Kalder funktionen "visSlides" og sender slideNummer værdien med (dvs. 1). funktionen visSlide får værdien fra variablen "slideNummer" med sig
-
-        function plusSlides(n) {
-            console.log("N:" + n); // n = 1 ved pil frem og -1 ved pil tilbage. Det er angivet i HTML filen.
-            visSlides(slideNummer += n); // Kalder funktionen "visSlides" og sender slideNummer værdien med, samt lægger n (1/-1) til.
-        }
-
-        // KÃ¸r funktion visSlides - har værdien fra "n" med sig (1/-1)
-        function visSlides(n) {
-
-            let i; // Opretter variablen i sÃ¥ den kan tÃ¦lles pÃ¥
-            let slides = document.getElementsByClassName("billede_slideshow"); // Opretter variablen slides = classerne med "billede_slideshow"
-            let dots = document.getElementsByClassName("dot"); // Opretter varibalen dots = classerne med "dot"
-
-            // To if-sÃ¦tninger til at styre hvilket nummer af ".billede_slideshow" der skal vises.
-            // Hvis n (her 4) > 3 sÃ¥ sÃ¦t slideNummer = 1, sÃ¥ledes at billede 1 bliver vist (se consollen)
-            if (n > slides.length) {
-                console.log("N = " + n); // N = 4 da n bliver 3(slideNummer) + 1(n) = 4
-                console.log("Hvor mange img'er der = " + slides.length); // Der er 2 diver med classen billede_slideshow
-
-                slideNummer = 1 // SÃ¦t slideNummer = 1 dvs vis billede 1
-            }
-
-            // Hvis n (her 0) < 1 sÃ¥ sÃ¦t slideNummer = 3 sÃ¥ledes at billede 3 bliver vist
-            if (n < 1) {
-                console.log("N = " + n); // N = 0 da n bliver 1 - 1 = 0
-                console.log("Hvor mange img'er der = " + slides.length); // Der er 3 diver med classen billede_slideshow
-
-
-                slideNummer = slides.length // SÃ¦t slideNummer = 3 dvs vis billede 3
-            }
-            // For = loop igennem kode et antal gange
-            for (i = 0; i < slides.length; i++) { // SÃ¦tter fÃ¸rst i = 0. Derefter, hvis i(0) < 2(slide.length) sÃ¥ plus Ã©n til i.
-                slides[i].style.display = "none"; // variable "slides" fÃ¥r tallet 1 og sÃ¦tter display til none
-            }
-            for (i = 0; i < dots.length; i++) { // SÃ¦tter fÃ¸rst i = 0. Derefter, hvis i(0) < 2 (dot.length) sÃ¥ plus Ã©n til i.
-                dots[i].className = dots[i].className.replace(" valgt_dot", ""); // variable "dot" fÃ¥r tallet 1 og erstatter classname "valgt_dot" med ingenting
-            }
-
-            slides[slideNummer - 1].style.display = "block"; // de billeder hvor i = 0 fÃ¥r display block, sÃ¥ledes at man ikke kan se billederne
-            dots[slideNummer - 1].className += " valgt_dot"; // Den prik uden i = 0 fÃ¥r tilfÃ¸jet klassen "valgt_dot"
-        }
+       function tilbageTilListe() {
+        history.back();
+    }
 
     </script>
 
