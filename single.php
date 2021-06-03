@@ -50,41 +50,12 @@ get_header(); ?>
     <template>
         <article>
             <div class="row">
-
                 <div class="column">
-                    <!--<div class="storebillede">
+                    <div class="storebillede">
                        <img class="img1" src="#" alt="">
                    </div>
-                    <img class="img2 hide" src="#" width="171" height="171" alt="">-->
-
-
-
-
-                    <!-- The expanding image container -->
-                    <div class="container">
-                        <!-- Close the image -->
-                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
-                        <!-- Expanded image -->
-                        <img id="expandedImg" style="width:100%">
-
-                        <!-- Image text -->
-                        <div id="imgtext"></div>
-                    </div>
-
-                    <!-- The grid: four columns -->
-                    <div class="row1">
-                        <div class="column">
-                            <img src="#" alt="" onclick="myFunction(this);">
-                        </div>
-                        <div class="column">
-                            <img src="#" alt="" onclick="myFunction(this);">
-                        </div>
-
-                    </div>
-
-
-
+                   <img class="img2 hide" src="#" width="171" height="171" alt="" onclick="myFunction();">
+                    <img class="img3 hide" src="#" width="171" height="171" alt="" onclick="myFunction1();">
                 </div>
 
                 <div class="column">
@@ -133,8 +104,9 @@ get_header(); ?>
             padding-right: 20px;
         }
 
-        .img2 {
+        .img2, .img3 {
             margin-top: 20px;
+            cursor: pointer;
         }
 
         .buttons {
@@ -258,60 +230,6 @@ get_header(); ?>
             display: none;
         }
 
-
-
-
-        /*------------------------------------------------------*/
-
-        /* The grid: Four equal columns that floats next to each other */
-        .column {
-            float: left;
-            width: 25%;
-            padding: 10px;
-        }
-
-        /* Style the images inside the grid */
-        .column img {
-            opacity: 0.8;
-            cursor: pointer;
-        }
-
-        .column img:hover {
-            opacity: 1;
-        }
-
-        /* Clear floats after the columns */
-        .row1:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        /* The expanding image container (positioning is needed to position the close button and the text) */
-        .container {
-            position: relative;
-            display: none;
-        }
-
-        /* Expanding image text */
-        #imgtext {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            color: white;
-            font-size: 20px;
-        }
-
-        /* Closable button inside the image */
-        .closebtn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            color: white;
-            font-size: 35px;
-            cursor: pointer;
-        }
-
     </style>
 
     <script>
@@ -397,7 +315,9 @@ get_header(); ?>
                 klon.querySelector(".img2").src = produkter.billede1.guid;
                 klon.querySelector(".img2").alt = produkter.billede1.post_title;
                 klon.querySelector(".img2").classList.remove("hide");
-                myFunction(imgs);
+                klon.querySelector(".img3").src = produkter.billede.guid;
+                klon.querySelector(".img3").alt = produkter.billede.post_title;
+                klon.querySelector(".img3").classList.remove("hide");
             }
             klon.querySelector("h2").innerHTML = produkter.title.rendered;
             klon.querySelector("h3").innerHTML = produkter.pris;
@@ -407,19 +327,17 @@ get_header(); ?>
             document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
         }
 
+        function myFunction() {
 
-        function myFunction(imgs) {
-            // Get the expanded image
-            var expandImg = document.getElementById("expandedImg");
-            // Get the image text
-            var imgText = document.getElementById("imgtext");
-            // Use the same src in the expanded image as the image being clicked on from the grid
-            expandImg.src = imgs.src;
-            // Use the value of the alt attribute of the clickable image as text inside the expanded image
-            imgText.innerHTML = imgs.alt;
-            // Show the container element (hidden with CSS)
-            expandImg.parentElement.style.display = "block";
+            document.querySelector(".img1").src = produkter.billede1.guid;
+            document.querySelector(".img1").alt = produkter.billede1.post_title;
         }
+
+        function myFunction1() {
+            document.querySelector(".img1").src = produkter.billede.guid;
+            document.querySelector(".img1").alt = produkter.billede.post_title;
+        }
+
 
         function tilbageTilListe() {
             history.back();
