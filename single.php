@@ -41,7 +41,7 @@ get_header(); ?>
     </head>
 
     <section id="produkt-oversigt">
-    <button class="back-button">Back</button>
+        <button class="back-button">Back</button>
     </section>
 
 
@@ -52,10 +52,39 @@ get_header(); ?>
             <div class="row">
 
                 <div class="column">
-                   <div class="storebillede">
+                    <!--<div class="storebillede">
                        <img class="img1" src="#" alt="">
                    </div>
-                    <img class="img2 hide" src="#" width="171" height="171" alt="">
+                    <img class="img2 hide" src="#" width="171" height="171" alt="">-->
+
+
+
+
+                    <!-- The expanding image container -->
+                    <div class="container">
+                        <!-- Close the image -->
+                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+                        <!-- Expanded image -->
+                        <img id="expandedImg" style="width:100%">
+
+                        <!-- Image text -->
+                        <div id="imgtext"></div>
+                    </div>
+
+                    <!-- The grid: four columns -->
+                    <div class="row1">
+                        <div class="column">
+                            <img src="#" alt="" onclick="myFunction(this);">
+                        </div>
+                        <div class="column">
+                            <img src="#" alt="" onclick="myFunction(this);">
+                        </div>
+
+                    </div>
+
+
+
                 </div>
 
                 <div class="column">
@@ -63,7 +92,7 @@ get_header(); ?>
                     <h3></h3>
                     <p></p>
                     <div>
-                    <button class="knap1">Buy Now</button>
+                        <button class="knap1">Buy Now</button>
                     </div>
                     <div>
                         <button class="knap2">Add to Cart</button>
@@ -108,10 +137,11 @@ get_header(); ?>
             margin-top: 20px;
         }
 
-        .buttons{
+        .buttons {
             display: flex;
         }
-        .knap1{
+
+        .knap1 {
             width: 180px;
             color: #F8534C;
             background-color: white;
@@ -122,7 +152,7 @@ get_header(); ?>
 
         }
 
-        .knap2{
+        .knap2 {
             margin-top: 1vw;
             width: 180px;
             color: #4a4951;
@@ -134,7 +164,7 @@ get_header(); ?>
 
         }
 
-        .back-button{
+        .back-button {
             margin-top: 2vw;
             width: 137px;
             color: #4a4951;
@@ -156,19 +186,19 @@ get_header(); ?>
                 padding-left: 3vw;
             }
 
-            .storebillede{
+            .storebillede {
                 overflow: hidden;
                 margin: 0 auto;
                 box-shadow: 0px 0px 6px #8b8b8b;
 
             }
 
-            .storebillede img{
+            .storebillede img {
                 width: 100%;
                 transition: 0.5s all ease-in-out;
             }
 
-            .storebillede:hover img{
+            .storebillede:hover img {
                 transform: scale(1.5);
                 cursor: crosshair;
 
@@ -226,6 +256,60 @@ get_header(); ?>
 
         .hide {
             display: none;
+        }
+
+
+
+
+        /*------------------------------------------------------*/
+
+        /* The grid: Four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 10px;
+        }
+
+        /* Style the images inside the grid */
+        .column img {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .column img:hover {
+            opacity: 1;
+        }
+
+        /* Clear floats after the columns */
+        .row1:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The expanding image container (positioning is needed to position the close button and the text) */
+        .container {
+            position: relative;
+            display: none;
+        }
+
+        /* Expanding image text */
+        #imgtext {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Closable button inside the image */
+        .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
         }
 
     </style>
@@ -313,6 +397,7 @@ get_header(); ?>
                 klon.querySelector(".img2").src = produkter.billede1.guid;
                 klon.querySelector(".img2").alt = produkter.billede1.post_title;
                 klon.querySelector(".img2").classList.remove("hide");
+                myFunction(imgs);
             }
             klon.querySelector("h2").innerHTML = produkter.title.rendered;
             klon.querySelector("h3").innerHTML = produkter.pris;
@@ -322,9 +407,23 @@ get_header(); ?>
             document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
         }
 
-       function tilbageTilListe() {
-        history.back();
-    }
+
+        function myFunction(imgs) {
+            // Get the expanded image
+            var expandImg = document.getElementById("expandedImg");
+            // Get the image text
+            var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            expandImg.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            expandImg.parentElement.style.display = "block";
+        }
+
+        function tilbageTilListe() {
+            history.back();
+        }
 
     </script>
 
