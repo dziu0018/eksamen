@@ -52,14 +52,14 @@ get_header(); ?>
             <div class="row">
                 <div class="column">
                     <div class="storebillede">
-                       <img class="img1" src="#" alt="">
-                   </div>
-                   <img class="img2 hide" src="#" width="171" height="171" alt="" onclick="myFunction();">
+                        <img class="img1" src="#" alt="">
+                    </div>
+                    <img class="img2 hide" src="#" width="171" height="171" alt="" onclick="myFunction();">
                     <img class="img3 hide" src="#" width="171" height="171" alt="" onclick="myFunction1();">
                 </div>
 
                 <div class="column">
-                    <h2></h2>
+                    <h2 class="beskrivelse"></h2>
                     <h3></h3>
                     <p></p>
                     <div>
@@ -71,8 +71,25 @@ get_header(); ?>
                 </div>
             </div>
         </article>
-    </template>
+        <article class="udvalgtesektion">
 
+            <h2 class="udvalgte">Udvalgte produkter</h2>
+            <div class="udvalgtebilleder">
+            <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/w153-ile-poppy-red/">
+            <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/06/w153_highres_cutout_25_1024x1024.jpg" alt="red-lamp">
+            </a>
+            <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/engelbrecht-kevi-2070-oak/">
+            <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/KEVI-2070-oak-veneer-1_1024x1024.jpeg" alt="engelbrecht-kevi-oak">
+            </a>
+            <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/no24-tea-cozy-blue-multi-striped/">
+            <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/200321no24tehaetter02_1024x1024.jpeg" alt="no24-tea-cozy">
+            </a>
+            <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/kyoto-tango-for-hay-bracelet-no-03/">
+            <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/541052_KyotoTangoforHAYBraceletno3_590x.jpg" alt="kyoto-tango-for-hay-bracelet">
+            </a>
+            </div>
+        </article>
+    </template>
 
 
 
@@ -104,9 +121,44 @@ get_header(); ?>
             padding-right: 20px;
         }
 
-        .img2, .img3 {
+        .img1 {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .img2,
+        .img3 {
             margin-top: 20px;
             cursor: pointer;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+
+        }
+
+
+        .img3 {
+            margin-left: 10px;
+        }
+
+        .img4 {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0px 0px 6px #8b8b8b;
+            object-fit: cover;
+        }
+
+        .udvalgte {
+            margin-top: 5vw;
+        }
+
+        .udvalgtebilleder {
+            margin-top: 1vw;
+        }
+        .udvalgtesektion {
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .buttons {
@@ -121,6 +173,7 @@ get_header(); ?>
             font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
             font-weight: 700;
+            text-transform: lowercase;
 
         }
 
@@ -133,6 +186,7 @@ get_header(); ?>
             font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
             font-weight: 600;
+            text-transform: lowercase;
 
         }
 
@@ -145,6 +199,7 @@ get_header(); ?>
             font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
             font-weight: 800;
+            margin-left: 20px;
         }
 
         @media screen and (min-width:768px) {
@@ -176,6 +231,25 @@ get_header(); ?>
 
             }
 
+            .img1 {
+                width: 400px;
+                height: 500px;
+
+            }
+
+            .img2,
+            .img3 {
+                width: 200px;
+                height: 200px;
+
+            }
+
+            .img4 {
+                width: 150px;
+                height: 150px;
+                margin-left: 10px;
+            }
+
         }
 
         /* ------------------------------------------------ */
@@ -194,17 +268,24 @@ get_header(); ?>
             margin: 0 auto;
         }
 
+        .beskrivelse {
+            margin-top: 20px;
+        }
+
         h2 {
             color: #4A4951;
             font-family: 'Quicksand', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8em;
             font-weight: 500;
+            margin-top: 0.5em;
+            text-transform: lowercase;
         }
 
         h3 {
             color: #4A4951;
             font-family: 'Quicksand', sans-serif;
             font-size: 1.6rem;
+            text-transform: lowercase;
         }
 
 
@@ -219,7 +300,8 @@ get_header(); ?>
         p {
             color: #4A4951;
             font-family: 'Raleway', sans-serif;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            margin-top: 20px;
         }
 
         .column img {
@@ -228,6 +310,12 @@ get_header(); ?>
 
         .hide {
             display: none;
+        }
+
+        .ast-separate-container #primary,
+        .ast-separate-container.ast-left-sidebar #primary,
+        .ast-separate-container.ast-right-sidebar #primary {
+            margin: 0em;
         }
 
     </style>
