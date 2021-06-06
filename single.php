@@ -95,8 +95,6 @@ get_header(); ?>
 
 
                                 <style>
-                                    /* ------------------------------------------------ */
-
                                     .ast-separate-container .ast-article-post,
                                     .ast-separate-container .ast-article-single:not(.ast-related-post) {
                                         display: none;
@@ -237,7 +235,6 @@ get_header(); ?>
                                             margin-top: 1vw;
                                         }
                                     }
-                                    /* ------------------------------------------------ */
 
                                     body {
                                         padding: 0;
@@ -335,43 +332,10 @@ get_header(); ?>
                                         categories = await catresponse.json();
                                         console.log(categories);
                                         visProdukter();
-                                        //opretknapper();
+
                                     }
 
 
-                                    //function opretknapper() {
-
-
-
-                                    // ------------------------------------------------------ DETTE ER USIKKERT!!!!!!
-                                    // categories.forEach(cat => {
-                                    //   if (cat.name == "Alle") {
-                                    //     document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-produkt="${cat.id}">${cat.name}</button>`
-                                    // } else {
-                                    //    document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
-                                    // }
-                                    //  })
-
-                                    //   addEventListenerToButtons();
-                                    //  }
-
-
-                                    // function addEventListenerToButtons() {
-
-                                    //     document.querySelectorAll("#filtrering button").forEach(elm => {
-                                    //         elm.addEventListener("click", filtrering);
-                                    //     })
-                                    //  }
-
-
-                                    //   function filtrering() {
-                                    //     document.querySelectorAll("#filtrering button").forEach(elm => {
-                                    //         elm.classList.remove("active")
-                                    //      });
-                                    //      filterProdukt = this.dataset.produkt;
-                                    //      console.log(filterProdukt);
-                                    //      visProdukter();
-                                    //   }
 
 
                                     function visProdukter() {
