@@ -331,15 +331,15 @@ get_header(); ?>
 
 
                                     const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product/" + aktuelProdukt;
-                                  /*  const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories";*/
+                                    /*  const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories";*/
 
                                     async function getJson() {
                                         console.log("getJson");
                                         let response = await fetch(url);
-                                        let catresponse = await fetch(catUrl);
+                                        //                                        let catresponse = await fetch(catUrl);
                                         produkter = await response.json();
-                                        categories = await catresponse.json();
-                                        console.log(categories);
+                                        //                                        categories = await catresponse.json();
+                                        //                                        console.log(categories);
                                         visProdukter();
 
                                     }
