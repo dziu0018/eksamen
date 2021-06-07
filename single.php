@@ -49,7 +49,8 @@ get_header(); ?>
         </div>
     </section>
 
-
+    <section id="produkt-oversigt">
+    </section>
 
 
     <template>
@@ -95,9 +96,6 @@ get_header(); ?>
             </div>
         </article>
     </template>
-
-
-
 
     <style>
         .ast-separate-container .ast-article-post,
@@ -342,7 +340,7 @@ get_header(); ?>
 
 
 
-        function visProdukter() {
+        /*function visProdukter() {
             console.log("visProdukter");
             document.querySelector("#loadingscreen").style.display = "none";
             let klon = skabelon.cloneNode(true).content;
@@ -363,6 +361,29 @@ get_header(); ?>
             liste.appendChild(klon);
             document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
         }
+*/
+        function visProdukter() {
+            console.log("visProdukter");
+            document.querySelector("#loadingscreen").style.display = "none";
+
+            document.querySelector(".img1").src = produkter.billede.guid;
+            document.querySelector(".img1").alt = produkter.billede.post_title;
+            if (produkter.billede1.guid) {
+                document.querySelector(".img2").src = produkter.billede1.guid;
+                document.querySelector(".img2").alt = produkter.billede1.post_title;
+                document.querySelector(".img2").classList.remove("hide");
+                document.querySelector(".img3").src = produkter.billede.guid;
+                document.querySelector(".img3").alt = produkter.billede.post_title;
+                document.querySelector(".img3").classList.remove("hide");
+            }
+            document.querySelector("h2").innerHTML = produkter.title.rendered;
+            document.querySelector("h3").innerHTML = produkter.pris;
+            document.querySelector("p").innerHTML = produkter.langbeskrivelse;
+            console.log("produkt", produkter.link);
+
+            document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
+        }
+
 
         function myFunction() {
             document.querySelector(".img1").src = produkter.billede1.guid;
@@ -376,6 +397,33 @@ get_header(); ?>
 
         function tilbageTilListe() {
             history.back();
+        }
+
+
+
+
+
+
+        function visKunstner() {
+            document.querySelector(".billede").src = medieurl + kunstner.billede;
+
+            document.querySelector(".billede").alt = "Billede af " + kunstner.navn;
+
+            document.querySelector(".billede").title = kunstner.navn;
+
+            document.querySelector(".billedecredits").textContent = kunstner.billedecredits;
+
+            document.querySelector(".navn").textContent = kunstner.navn;
+
+            document.querySelector(".genre").textContent = "Genre: " + kunstner.genre;
+            //VIRKER OGSÅ: klon.querySelector(".genre").innerHTML += ` ${kunstner.efternavn}`;
+
+            document.querySelector(".youtubelink").innerHTML = kunstner.youtube;
+            document.querySelector(".om").textContent = kunstner.om;
+            document.querySelector(".lyttere").textContent = kunstner.lyttere;
+
+            document.querySelector("button").addEventListener("click", tilbageTilKunstnere); //laver en eventlistener "click" på tilbageknap og refererer til tilbageTilKunstnere
+
         }
 
     </script>
