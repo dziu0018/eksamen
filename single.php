@@ -91,8 +91,6 @@ get_header(); ?>
         </article>
     </section>
 
-    <section id="produkt-oversigt">
-    </section>
 
 
     <!--<template>
@@ -355,7 +353,7 @@ get_header(); ?>
     </style>
 
     <script>
-        let produkter;
+        let produkter = [];
         let aktuelProdukt = <?php echo get_the_ID() ?>;
 
         const liste = document.querySelector("#produkt-oversigt");
