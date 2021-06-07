@@ -35,11 +35,11 @@ get_header(); ?>
 
 
 
-                                <main id="main" class="site-main">
+                                <section id="main" class="site-main">
                                     <nav id="filtrering"></nav>
                                     <div id="produkt-oversigt">
                                     </div>
-                                </main>
+                                </section>
 
 
 
@@ -85,7 +85,7 @@ get_header(); ?>
                                         background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
                                     }
 
-                                    main {
+                                    #main {
                                         padding-right: 40px;
                                         padding-left: 40px;
                                         width: 100%;

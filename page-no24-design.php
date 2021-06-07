@@ -35,11 +35,11 @@ get_header(); ?>
 
 
 
-                                <main id="main" class="site-main">
+                                <section id="main" class="site-main">
                                     <nav id="filtrering"></nav>
                                     <div id="produkt-oversigt">
                                     </div>
-                                </main>
+                                </section>
 
 
 
@@ -54,19 +54,12 @@ get_header(); ?>
                                 </template>
 
                                 <style>
-                                    /* ------------------------------------------------ */
-
                                     #produkt-oversigt {
                                         max-width: 1200px;
                                         margin: 0 auto;
                                         display: grid;
                                         grid-gap: 10px;
                                     }
-                                    /*
-        article {
-            border: 1px solid #000;
-        }
-*/
 
                                     img {
                                         width: 250px;
@@ -84,7 +77,6 @@ get_header(); ?>
                                             grid-gap: 0.8em;
                                         }
                                     }
-                                    /* ------------------------------------------------ */
 
                                     body {
                                         padding: 0;
@@ -93,18 +85,11 @@ get_header(); ?>
                                         background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
                                     }
 
-                                    main {
+                                    #main {
                                         padding-right: 40px;
                                         padding-left: 40px;
                                         width: 100%;
                                     }
-                                    /*
-        #produkt-oversigt {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 0.8em;
-        }
-*/
 
                                     .produktpic {
                                         transition: 0.2s ease-out;
@@ -172,75 +157,18 @@ get_header(); ?>
 
 
                                     const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=8";
-                                    //const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories/8";
+
 
                                     async function getJson() {
                                         console.log("getJson");
                                         let response = await fetch(url);
-                                        //let catresponse = await fetch(catUrl);
+
                                         produkter = await response.json();
-                                        //categories = await catresponse.json();
+
                                         console.log(categories);
                                         visProdukter();
-                                        //opretknapper();
+
                                     }
-
-
-                                    //function opretknapper() {
-
-
-
-                                    // ------------------------------------------------------ DETTE ER USIKKERT!!!!!!
-                                    // categories.forEach(cat => {
-                                    //   if (cat.name == "Alle") {
-                                    //     document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-produkt="${cat.id}">${cat.name}</button>`
-                                    // } else {
-                                    //    document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
-                                    // }
-                                    //  })
-
-                                    //   addEventListenerToButtons();
-                                    //  }
-
-
-                                    // function addEventListenerToButtons() {
-
-                                    //     document.querySelectorAll("#filtrering button").forEach(elm => {
-                                    //         elm.addEventListener("click", filtrering);
-                                    //     })
-                                    //  }
-
-
-                                    //   function filtrering() {
-                                    //     document.querySelectorAll("#filtrering button").forEach(elm => {
-                                    //         elm.classList.remove("active")
-                                    //      });
-                                    //      filterProdukt = this.dataset.produkt;
-                                    //      console.log(filterProdukt);
-                                    //      visProdukter();
-                                    //   }
-
-
-                                    /*function visProdukter() {
-                                        console.log(produkter);
-
-                                        liste.innerHTML = "";
-                                        produkter.forEach(produkter => {
-                                            if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
-                                                const klon = skabelon.cloneNode(true).content;
-                                                klon.querySelector("h2").innerHTML = produkter.title.rendered + " - " + produkter.pris;
-                                                // --------------------------------------------------------------------------------"produkter"
-                                                klon.querySelector("img").src = produkter.billede.guid;
-                                                klon.querySelector("img").alt = produkter.billede.post_title;
-
-                                                klon.querySelector(".produktpic").addEventListener("click", () => {
-                                                    location.href = produkter.link;
-                                                })
-                                                liste.appendChild(klon);
-                                            }
-                                        })
-                                    }*/
-
 
 
                                     function visProdukter() {
