@@ -41,19 +41,13 @@ get_header(); ?>
     </head>
 
     <section id="produkt-oversigt">
+
         <button class="back-button">Back</button>
         <div id="loadingscreen">
             <div id="loader"></div>
             <div id="spacer">
             </div>
         </div>
-    </section>
-
-    <section id="produkt-oversigt">
-    </section>
-
-
-    <template>
         <article>
             <div class="row">
                 <div class="column">
@@ -95,7 +89,55 @@ get_header(); ?>
                 </a>
             </div>
         </article>
-    </template>
+    </section>
+
+    <section id="produkt-oversigt">
+    </section>
+
+
+    <!--<template>
+        <article>
+            <div class="row">
+                <div class="column">
+                    <div class="storebillede">
+                        <img class="img1" src="#" alt="">
+                    </div>
+                    <img class="img2 hide" src="#" width="171" height="171" alt="" onclick="myFunction();">
+                    <img class="img3 hide" src="#" width="171" height="171" alt="" onclick="myFunction1();">
+                </div>
+
+                <div class="column">
+                    <h2 class="beskrivelse"></h2>
+                    <h3></h3>
+                    <p></p>
+                    <div>
+                        <button class="knap1">Buy Now</button>
+                    </div>
+                    <div>
+                        <button class="knap2">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="udvalgtesektion">
+
+            <h2 class="udvalgte">Udvalgte produkter</h2>
+            <div class="udvalgtebilleder">
+                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/w153-ile-poppy-red/">
+                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/06/w153_highres_cutout_25_1024x1024.jpg" alt="red-lamp">
+                </a>
+                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/engelbrecht-kevi-2070-oak/">
+                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/KEVI-2070-oak-veneer-1_1024x1024.jpeg" alt="engelbrecht-kevi-oak">
+                </a>
+                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/no24-tea-cozy-blue-multi-striped/">
+                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/200321no24tehaetter02_1024x1024.jpeg" alt="no24-tea-cozy">
+                </a>
+                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/kyoto-tango-for-hay-bracelet-no-03/">
+                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/541052_KyotoTangoforHAYBraceletno3_590x.jpg" alt="kyoto-tango-for-hay-bracelet">
+                </a>
+            </div>
+        </article>
+    </template>-->
 
     <style>
         .ast-separate-container .ast-article-post,
@@ -404,27 +446,27 @@ get_header(); ?>
 
 
 
-        function visKunstner() {
-            document.querySelector(".billede").src = medieurl + kunstner.billede;
+        /*        function visKunstner() {
+                    document.querySelector(".billede").src = medieurl + kunstner.billede;
 
-            document.querySelector(".billede").alt = "Billede af " + kunstner.navn;
+                    document.querySelector(".billede").alt = "Billede af " + kunstner.navn;
 
-            document.querySelector(".billede").title = kunstner.navn;
+                    document.querySelector(".billede").title = kunstner.navn;
 
-            document.querySelector(".billedecredits").textContent = kunstner.billedecredits;
+                    document.querySelector(".billedecredits").textContent = kunstner.billedecredits;
 
-            document.querySelector(".navn").textContent = kunstner.navn;
+                    document.querySelector(".navn").textContent = kunstner.navn;
 
-            document.querySelector(".genre").textContent = "Genre: " + kunstner.genre;
-            //VIRKER OGSÅ: klon.querySelector(".genre").innerHTML += ` ${kunstner.efternavn}`;
+                    document.querySelector(".genre").textContent = "Genre: " + kunstner.genre;
+                    //VIRKER OGSÅ: klon.querySelector(".genre").innerHTML += ` ${kunstner.efternavn}`;
 
-            document.querySelector(".youtubelink").innerHTML = kunstner.youtube;
-            document.querySelector(".om").textContent = kunstner.om;
-            document.querySelector(".lyttere").textContent = kunstner.lyttere;
+                    document.querySelector(".youtubelink").innerHTML = kunstner.youtube;
+                    document.querySelector(".om").textContent = kunstner.om;
+                    document.querySelector(".lyttere").textContent = kunstner.lyttere;
 
-            document.querySelector("button").addEventListener("click", tilbageTilKunstnere); //laver en eventlistener "click" på tilbageknap og refererer til tilbageTilKunstnere
+                    document.querySelector("button").addEventListener("click", tilbageTilKunstnere); //laver en eventlistener "click" på tilbageknap og refererer til tilbageTilKunstnere
 
-        }
+                }*/
 
     </script>
 
