@@ -42,6 +42,11 @@ get_header(); ?>
 
                                 <section id="produkt-oversigt">
                                     <button class="back-button">Back</button>
+                                    <div id="loadingscreen">
+                                        <div id="loader"></div>
+                                        <div id="spacer">
+                                        </div>
+                                    </div>
                                 </section>
 
 
@@ -295,6 +300,10 @@ get_header(); ?>
                                         margin: 0em;
                                     }
 
+                                    #spacer {
+                                        height: 68vw;
+                                    }
+
                                 </style>
 
                                 <script>
@@ -340,6 +349,7 @@ get_header(); ?>
 
                                     function visProdukter() {
                                         console.log("visProdukter");
+                                        document.querySelector("#loadingscreen").style.display = "none";
                                         let klon = skabelon.cloneNode(true).content;
                                         klon.querySelector(".img1").src = produkter.billede.guid;
                                         klon.querySelector(".img1").alt = produkter.billede.post_title;

@@ -87,7 +87,7 @@ get_header(); ?>
                                         padding: 0;
                                         margin: 0;
                                         background: rgb(255, 255, 255);
-                                        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
+                                        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(245, 240, 236, 1) 40%, rgba(245, 240, 236, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 64%, rgba(247, 234, 222, 1) 64%, rgba(247, 234, 222, 1) 74%, rgba(255, 255, 255, 1) 74%, rgba(255, 255, 255, 1) 74%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
                                     }
 
                                     #main {
@@ -142,7 +142,7 @@ get_header(); ?>
                                     }
 
                                     #loader {
-                                        border: 11px solid #ffffff;
+                                        border: 11px solid #eeeef0;
                                         border-top: 11px solid #f8534c;
                                         border-radius: 50%;
                                         width: 60px;
