@@ -160,6 +160,10 @@ get_header(); ?>
                                         }
                                     }
 
+                                    #primary {
+                                        margin: 0;
+                                    }
+
                                 </style>
 
                                 <script>
