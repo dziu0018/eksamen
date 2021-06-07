@@ -19,190 +19,217 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
+    <?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
 
-<?php get_sidebar(); ?>
+        <?php get_sidebar(); ?>
 
-<?php endif ?>
+            <?php endif ?>
 
-<div id="primary" <?php astra_primary_class(); ?>>
+                <div id="primary" <?php astra_primary_class(); ?>>
 
-    <?php astra_primary_content_top(); ?>
+                    <?php astra_primary_content_top(); ?>
 
-    <?php astra_content_page_loop(); ?>
+                        <?php astra_content_page_loop(); ?>
 
-    <?php astra_primary_content_bottom(); ?>
-
-
-
-    <section id="main" class="site-main">
-        <nav id="filtrering"></nav>
-        <div id="produkt-oversigt">
-        </div>
-    </section>
+                            <?php astra_primary_content_bottom(); ?>
 
 
 
+                                <section id="main" class="site-main">
+                                    <nav id="filtrering"></nav>
+                                    <div id="produkt-oversigt">
+                                    </div>
+                                    <div id="loadingscreen">
+                                        <div id="loader"></div>
+                                        <div id="spacer">
+                                        </div>
+                                    </div>
+                                </section>
 
 
-    <template>
-        <article>
-            <img class="produktpic" src="" alt="">
-            <h2></h2>
-            <h3></h3>
-        </article>
-    </template>
-
-    <style>
-        #produkt-oversigt {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-gap: 10px;
-        }
-
-        img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            box-shadow: 0px 0px 6px #8b8b8b;
-        }
-
-        article:nth-child(odd) {}
-
-        @media screen and (min-width:768px) {
-            #produkt-oversigt {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                grid-gap: 0.8em;
-            }
-        }
 
 
-        body {
-            padding: 0;
-            margin: 0;
-            background: rgb(255, 255, 255);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
-        }
 
-        #main {
-            padding-right: 40px;
-            padding-left: 40px;
-            width: 100%;
-        }
+                                <template>
+                                    <article>
+                                        <img class="produktpic" src="" alt="">
+                                        <h2></h2>
+                                        <h3></h3>
+                                    </article>
+                                </template>
 
-        .produktpic {
-            transition: 0.2s ease-out;
-            cursor: pointer;
-        }
+                                <style>
+                                    #produkt-oversigt {
+                                        max-width: 1200px;
+                                        margin: 0 auto;
+                                        display: grid;
+                                        grid-gap: 10px;
+                                    }
 
-        .produktpic:hover {
-            transform: scale(1.02);
-        }
+                                    img {
+                                        width: 250px;
+                                        height: 250px;
+                                        object-fit: cover;
+                                        box-shadow: 0px 0px 6px #8b8b8b;
+                                    }
 
-        h2 {
-            color: #4A4951;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 500;
-            padding-top: 8px;
-        }
+                                    article:nth-child(odd) {}
 
-        h3 {
-            color: #4A4951;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1rem;
-        }
+                                    @media screen and (min-width:768px) {
+                                        #produkt-oversigt {
+                                            display: grid;
+                                            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                                            grid-gap: 0.8em;
+                                        }
+                                    }
 
-        h1 {
-            text-align: center;
-            font-family: 'Josefin Sans', sans-serif;
-        }
+                                    body {
+                                        padding: 0;
+                                        margin: 0;
+                                        background: rgb(255, 255, 255);
+                                        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
+                                    }
 
-        p {
-            color: white;
-        }
+                                    #main {
+                                        padding-right: 40px;
+                                        padding-left: 40px;
+                                        width: 100%;
+                                    }
 
-        article {
-            padding: 20px;
-        }
+                                    .produktpic {
+                                        transition: 0.2s ease-out;
+                                        cursor: pointer;
+                                    }
 
-        #filtrering {
-            padding: 20px;
-            text-align: center;
-        }
+                                    .produktpic:hover {
+                                        transform: scale(1.02);
+                                    }
 
-    </style>
+                                    h2 {
+                                        color: #4A4951;
+                                        font-family: 'Quicksand', sans-serif;
+                                        font-size: 1.2rem;
+                                        font-weight: 500;
+                                        padding-top: 8px;
+                                    }
 
-    <script>
-        let produkter = [];
-        let categories;
-        let filterCategory = "alle";
+                                    h3 {
+                                        color: #4A4951;
+                                        font-family: 'Quicksand', sans-serif;
+                                        font-size: 1rem;
+                                    }
 
-        const liste = document.querySelector("#produkt-oversigt");
-        const skabelon = document.querySelector("template");
+                                    h1 {
+                                        text-align: center;
+                                        font-family: 'Josefin Sans', sans-serif;
+                                    }
 
-        let filterProdukt = "alle";
+                                    p {
+                                        color: white;
+                                    }
 
+                                    article {
+                                        padding: 20px;
+                                    }
 
-        // når DOM er loadet kalder den efter funktionen "start"
-        document.addEventListener("DOMContentLoaded", start)
+                                    #filtrering {
+                                        padding: 20px;
+                                        text-align: center;
+                                    }
 
+                                    #spacer {
+                                        height: 100vw;
+                                    }
 
-        // første funktion der kaldes efter DOM er loaded
-        function start() {
-            console.log("start");
-            getJson();
-        }
+                                    #loader {
+                                        border: 11px solid #ffffff;
+                                        border-top: 11px solid #f8534c;
+                                        border-radius: 50%;
+                                        width: 60px;
+                                        height: 60px;
+                                        animation: spin 1.5s linear infinite;
+                                        margin: 0 auto;
+                                    }
 
+                                    @keyframes spin {
+                                        0% {
+                                            transform: rotate(0deg);
+                                        }
+                                        100% {
+                                            transform: rotate(360deg);
+                                        }
+                                    }
 
-        const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=3";
+                                </style>
 
+                                <script>
+                                    let produkter = [];
+                                    let categories;
+                                    let filterCategory = "alle";
 
-        async function getJson() {
-            console.log("getJson");
-            let response = await fetch(url);
+                                    const liste = document.querySelector("#produkt-oversigt");
+                                    const skabelon = document.querySelector("template");
 
-            produkter = await response.json();
-
-            console.log(categories);
-            visProdukter();
-
-        }
-
-
-        function visProdukter() {
-            console.log(produkter);
-
-            liste.innerHTML = "";
-            produkter.forEach(produkter => {
-                if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
-                    const klon = skabelon.cloneNode(true).content;
-                    klon.querySelector("h2").innerHTML = produkter.title.rendered;
-                    klon.querySelector("h3").innerHTML = produkter.pris;
-                    // --------------------------------------------------------------------------------"produkter"
-                    klon.querySelector("img").src = produkter.billede.guid;
-                    klon.querySelector("img").alt = produkter.billede.post_title;
-
-                    klon.querySelector(".produktpic").addEventListener("click", () => {
-                        location.href = produkter.link;
-                    })
-                    liste.appendChild(klon);
-                }
-            })
-        }
-
-    </script>
+                                    let filterProdukt = "alle";
 
 
-</div>
-<!-- #primary -->
+                                    // når DOM er loadet kalder den efter funktionen "start"
+                                    document.addEventListener("DOMContentLoaded", start)
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
 
-<?php get_sidebar(); ?>
+                                    // første funktion der kaldes efter DOM er loaded
+                                    function start() {
+                                        console.log("start");
+                                        getJson();
+                                    }
 
-<?php endif ?>
 
-<?php get_footer(); ?>
+                                    const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=3&per_page=100";
+
+
+                                    async function getJson() {
+                                        console.log("getJson");
+                                        let response = await fetch(url);
+
+                                        produkter = await response.json();
+
+                                        console.log(categories);
+                                        visProdukter();
+
+                                    }
+
+
+                                    function visProdukter() {
+                                        console.log(produkter);
+                                        document.querySelector("#loadingscreen").style.display = "none";
+                                        liste.innerHTML = "";
+                                        produkter.forEach(produkter => {
+                                            if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
+                                                const klon = skabelon.cloneNode(true).content;
+                                                klon.querySelector("h2").innerHTML = produkter.title.rendered;
+                                                klon.querySelector("h3").innerHTML = produkter.pris;
+                                                // --------------------------------------------------------------------------------"produkter"
+                                                klon.querySelector("img").src = produkter.billede.guid;
+                                                klon.querySelector("img").alt = produkter.billede.post_title;
+
+                                                klon.querySelector(".produktpic").addEventListener("click", () => {
+                                                    location.href = produkter.link;
+                                                })
+                                                liste.appendChild(klon);
+                                            }
+                                        })
+                                    }
+
+                                </script>
+
+
+                </div>
+                <!-- #primary -->
+
+                <?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
+
+                    <?php get_sidebar(); ?>
+
+                        <?php endif ?>
+
+                            <?php get_footer(); ?>

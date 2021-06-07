@@ -39,6 +39,11 @@ get_header(); ?>
                                     <nav id="filtrering"></nav>
                                     <div id="produkt-oversigt">
                                     </div>
+                                    <div id="loadingscreen">
+                                        <div id="loader"></div>
+                                        <div id="spacer">
+                                        </div>
+                                    </div>
                                 </section>
 
 
@@ -132,6 +137,29 @@ get_header(); ?>
                                         text-align: center;
                                     }
 
+                                    #spacer {
+                                        height: 100vw;
+                                    }
+
+                                    #loader {
+                                        border: 11px solid #ffffff;
+                                        border-top: 11px solid #f8534c;
+                                        border-radius: 50%;
+                                        width: 60px;
+                                        height: 60px;
+                                        animation: spin 1.5s linear infinite;
+                                        margin: 0 auto;
+                                    }
+
+                                    @keyframes spin {
+                                        0% {
+                                            transform: rotate(0deg);
+                                        }
+                                        100% {
+                                            transform: rotate(360deg);
+                                        }
+                                    }
+
                                 </style>
 
                                 <script>
@@ -156,7 +184,7 @@ get_header(); ?>
                                     }
 
 
-                                    const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=6";
+                                    const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product?categories=6&per_page=100";
 
 
                                     async function getJson() {
@@ -173,7 +201,7 @@ get_header(); ?>
 
                                     function visProdukter() {
                                         console.log(produkter);
-
+                                        document.querySelector("#loadingscreen").style.display = "none";
                                         liste.innerHTML = "";
                                         produkter.forEach(produkter => {
                                             if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
