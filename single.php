@@ -41,59 +41,19 @@ get_header(); ?>
     </head>
 
     <section id="produkt-oversigt">
-
         <button class="back-button">Back</button>
         <div id="loadingscreen">
             <div id="loader"></div>
             <div id="spacer">
             </div>
         </div>
-        <article>
-            <div class="row">
-                <div class="column">
-                    <div class="storebillede">
-                        <img class="img1" src="#" alt="">
-                    </div>
-                    <img class="img2 hide" src="#" width="171" height="171" alt="" onclick="myFunction();">
-                    <img class="img3 hide" src="#" width="171" height="171" alt="" onclick="myFunction1();">
-                </div>
+    </section>
 
-                <div class="column">
-                    <h2 class="beskrivelse"></h2>
-                    <h3></h3>
-                    <p></p>
-                    <div>
-                        <button class="knap1">Buy Now</button>
-                    </div>
-                    <div>
-                        <button class="knap2">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </article>
-        <article class="udvalgtesektion">
-
-            <h2 class="udvalgte">Udvalgte produkter</h2>
-            <div class="udvalgtebilleder">
-                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/w153-ile-poppy-red/">
-                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/06/w153_highres_cutout_25_1024x1024.jpg" alt="red-lamp">
-                </a>
-                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/engelbrecht-kevi-2070-oak/">
-                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/KEVI-2070-oak-veneer-1_1024x1024.jpeg" alt="engelbrecht-kevi-oak">
-                </a>
-                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/no24-tea-cozy-blue-multi-striped/">
-                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/200321no24tehaetter02_1024x1024.jpeg" alt="no24-tea-cozy">
-                </a>
-                <a href="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/product/kyoto-tango-for-hay-bracelet-no-03/">
-                    <img class="img4" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/05/541052_KyotoTangoforHAYBraceletno3_590x.jpg" alt="kyoto-tango-for-hay-bracelet">
-                </a>
-            </div>
-        </article>
+    <section id="produkt-oversigt">
     </section>
 
 
-
-    <!--<template>
+    <template>
         <article>
             <div class="row">
                 <div class="column">
@@ -135,7 +95,7 @@ get_header(); ?>
                 </a>
             </div>
         </article>
-    </template>-->
+    </template>
 
     <style>
         .ast-separate-container .ast-article-post,
@@ -380,48 +340,26 @@ get_header(); ?>
 
 
 
-        /*function visProdukter() {
-            console.log("visProdukter");
-            document.querySelector("#loadingscreen").style.display = "none";
-            let klon = skabelon.cloneNode(true).content;
-            klon.querySelector(".img1").src = produkter.billede.guid;
-            klon.querySelector(".img1").alt = produkter.billede.post_title;
-            if (produkter.billede1.guid) {
-                klon.querySelector(".img2").src = produkter.billede1.guid;
-                klon.querySelector(".img2").alt = produkter.billede1.post_title;
-                klon.querySelector(".img2").classList.remove("hide");
-                klon.querySelector(".img3").src = produkter.billede.guid;
-                klon.querySelector(".img3").alt = produkter.billede.post_title;
-                klon.querySelector(".img3").classList.remove("hide");
-            }
-            klon.querySelector("h2").innerHTML = produkter.title.rendered;
-            klon.querySelector("h3").innerHTML = produkter.pris;
-            klon.querySelector("p").innerHTML = produkter.langbeskrivelse;
-            console.log("produkt", produkter.link);
-            liste.appendChild(klon);
-            document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
-        }
-*/
         function visProdukter() {
-            console.log("visProdukter");
-            document.querySelector("#loadingscreen").style.display = "none";
-
-            document.querySelector(".img1").src = produkter.billede.guid;
-            document.querySelector(".img1").alt = produkter.billede.post_title;
-            if (produkter.billede1.guid) {
-                document.querySelector(".img2").src = produkter.billede1.guid;
-                document.querySelector(".img2").alt = produkter.billede1.post_title;
-                document.querySelector(".img2").classList.remove("hide");
-                document.querySelector(".img3").src = produkter.billede.guid;
-                document.querySelector(".img3").alt = produkter.billede.post_title;
-                document.querySelector(".img3").classList.remove("hide");
-            }
-            document.querySelector("h2").innerHTML = produkter.title.rendered;
-            document.querySelector("h3").innerHTML = produkter.pris;
-            document.querySelector("p").innerHTML = produkter.langbeskrivelse;
-            console.log("produkt", produkter.link);
-
-            document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
+        console.log("visProdukter");
+        document.querySelector("#loadingscreen").style.display = "none";
+        let klon = skabelon.cloneNode(true).content;
+        klon.querySelector(".img1").src = produkter.billede.guid;
+        klon.querySelector(".img1").alt = produkter.billede.post_title;
+        if (produkter.billede1.guid) {
+        klon.querySelector(".img2").src = produkter.billede1.guid;
+        klon.querySelector(".img2").alt = produkter.billede1.post_title;
+        klon.querySelector(".img2").classList.remove("hide");
+        klon.querySelector(".img3").src = produkter.billede.guid;
+        klon.querySelector(".img3").alt = produkter.billede.post_title;
+        klon.querySelector(".img3").classList.remove("hide");
+        }
+        klon.querySelector("h2").innerHTML = produkter.title.rendered;
+        klon.querySelector("h3").innerHTML = produkter.pris;
+        klon.querySelector("p").innerHTML = produkter.langbeskrivelse;
+        console.log("produkt", produkter.link);
+        liste.appendChild(klon);
+        document.querySelector(".back-button").addEventListener("click", tilbageTilListe);
         }
 
 
@@ -439,32 +377,6 @@ get_header(); ?>
             history.back();
         }
 
-
-
-
-
-
-        /*        function visKunstner() {
-                    document.querySelector(".billede").src = medieurl + kunstner.billede;
-
-                    document.querySelector(".billede").alt = "Billede af " + kunstner.navn;
-
-                    document.querySelector(".billede").title = kunstner.navn;
-
-                    document.querySelector(".billedecredits").textContent = kunstner.billedecredits;
-
-                    document.querySelector(".navn").textContent = kunstner.navn;
-
-                    document.querySelector(".genre").textContent = "Genre: " + kunstner.genre;
-                    //VIRKER OGSÅ: klon.querySelector(".genre").innerHTML += ` ${kunstner.efternavn}`;
-
-                    document.querySelector(".youtubelink").innerHTML = kunstner.youtube;
-                    document.querySelector(".om").textContent = kunstner.om;
-                    document.querySelector(".lyttere").textContent = kunstner.lyttere;
-
-                    document.querySelector("button").addEventListener("click", tilbageTilKunstnere); //laver en eventlistener "click" på tilbageknap og refererer til tilbageTilKunstnere
-
-                }*/
 
     </script>
 
