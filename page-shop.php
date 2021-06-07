@@ -133,10 +133,6 @@ get_header(); ?>
             padding: 20px;
         }
 
-        #filtrering {
-            padding: 20px;
-            text-align: center;
-        }
 
         .kategoriknapper h2 a:hover {
             color: aqua;

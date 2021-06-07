@@ -331,7 +331,7 @@ get_header(); ?>
 
 
                                     const url = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/product/" + aktuelProdukt;
-                                    const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories";
+                                  /*  const catUrl = "http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-json/wp/v2/categories";*/
 
                                     async function getJson() {
                                         console.log("getJson");

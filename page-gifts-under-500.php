@@ -36,7 +36,6 @@ get_header(); ?>
 
 
     <main id="main" class="site-main">
-        <nav id="filtrering"></nav>
         <div id="produkt-oversigt">
         </div>
     </main>
@@ -95,8 +94,8 @@ get_header(); ?>
         body {
             padding: 0;
             margin: 0;
-            background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(245,240,236,1) 20%, rgba(245,240,236,1) 40%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 65%, rgba(247,234,222,1) 65%, rgba(247,234,222,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%);
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(245, 240, 236, 1) 20%, rgba(245, 240, 236, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 65%, rgba(247, 234, 222, 1) 65%, rgba(247, 234, 222, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
         }
 
 
@@ -161,13 +160,6 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
             padding: 20px;
         }
 
-
-
-        #filtrering {
-            padding: 20px;
-            text-align: center;
-        }
-
     </style>
 
     <script>
@@ -206,61 +198,6 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
             //opretknapper();
         }
 
-
-        //function opretknapper() {
-
-
-
-        // ------------------------------------------------------ DETTE ER USIKKERT!!!!!!
-        // categories.forEach(cat => {
-        //   if (cat.name == "Alle") {
-        //     document.querySelector("#filtrering").innerHTML += `<button class="filter active" data-produkt="${cat.id}">${cat.name}</button>`
-        // } else {
-        //    document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
-        // }
-        //  })
-
-        //   addEventListenerToButtons();
-        //  }
-
-
-        // function addEventListenerToButtons() {
-
-        //     document.querySelectorAll("#filtrering button").forEach(elm => {
-        //         elm.addEventListener("click", filtrering);
-        //     })
-        //  }
-
-
-        //   function filtrering() {
-        //     document.querySelectorAll("#filtrering button").forEach(elm => {
-        //         elm.classList.remove("active")
-        //      });
-        //      filterProdukt = this.dataset.produkt;
-        //      console.log(filterProdukt);
-        //      visProdukter();
-        //   }
-
-
-        /*function visProdukter() {
-            console.log(produkter);
-
-            liste.innerHTML = "";
-            produkter.forEach(produkter => {
-                if (filterProdukt == "alle" || produkter.categories.includes(parseInt(filterProdukt))) {
-                    const klon = skabelon.cloneNode(true).content;
-                    klon.querySelector("h2").innerHTML = produkter.title.rendered + " - " + produkter.pris;
-                    // --------------------------------------------------------------------------------"produkter"
-                    klon.querySelector("img").src = produkter.billede.guid;
-                    klon.querySelector("img").alt = produkter.billede.post_title;
-
-                    klon.querySelector(".produktpic").addEventListener("click", () => {
-                        location.href = produkter.link;
-                    })
-                    liste.appendChild(klon);
-                }
-            })
-        }*/
 
 
 
