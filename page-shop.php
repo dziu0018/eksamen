@@ -51,7 +51,7 @@ get_header(); ?>
 
     <template>
         <article>
-            <img class="produktpic" src="http://dziugas.dk/kea/eksamen/gruppe19/wordpress/wp-content/uploads/2021/06/hvidtbillede.jpg" alt="hvid_template">
+            <img class="produktpic" src="" alt="">
             <h2></h2>
             <h3></h3>
         </article>
