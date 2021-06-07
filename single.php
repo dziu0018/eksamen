@@ -313,7 +313,7 @@ get_header(); ?>
     </style>
 
     <script>
-        let produkter = [];
+        let produkter;
         let aktuelProdukt = <?php echo get_the_ID() ?>;
 
         const liste = document.querySelector("#produkt-oversigt");
